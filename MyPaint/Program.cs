@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace MyPaint
 {
@@ -13,10 +14,7 @@ namespace MyPaint
         /// </summary>
         [STAThread]
         static void Main()
-        {   
-            //static tipification for lab1
-
-            //lab1 end
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());

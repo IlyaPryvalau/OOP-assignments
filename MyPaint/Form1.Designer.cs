@@ -33,6 +33,8 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.DrawAllBtn = new System.Windows.Forms.Button();
             this.DrawSpace = new System.Windows.Forms.PictureBox();
+            this.clrBtn = new System.Windows.Forms.Button();
+            this.ShapeBox = new System.Windows.Forms.ComboBox();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrawSpace)).BeginInit();
             this.SuspendLayout();
@@ -71,21 +73,55 @@
             // DrawSpace
             // 
             this.DrawSpace.AccessibleName = "";
+            this.DrawSpace.BackColor = System.Drawing.Color.White;
             this.DrawSpace.Location = new System.Drawing.Point(166, 0);
             this.DrawSpace.Name = "DrawSpace";
             this.DrawSpace.Size = new System.Drawing.Size(1098, 682);
             this.DrawSpace.TabIndex = 2;
             this.DrawSpace.TabStop = false;
+            this.DrawSpace.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DrawSpace_MouseDown);
+            this.DrawSpace.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DrawSpace_MouseUp);
+            // 
+            // clrBtn
+            // 
+            this.clrBtn.Location = new System.Drawing.Point(27, 88);
+            this.clrBtn.Name = "clrBtn";
+            this.clrBtn.Size = new System.Drawing.Size(133, 70);
+            this.clrBtn.TabIndex = 3;
+            this.clrBtn.Text = "Clear";
+            this.clrBtn.UseVisualStyleBackColor = true;
+            this.clrBtn.Click += new System.EventHandler(this.clrBtn_Click);
+            // 
+            // ShapeBox
+            // 
+            this.ShapeBox.FormattingEnabled = true;
+            this.ShapeBox.Items.AddRange(new object[] {
+            "Triangle",
+            "Line",
+            "Oval",
+            "Circle",
+            "Rectangle",
+            "Square"});
+            this.ShapeBox.Location = new System.Drawing.Point(27, 164);
+            this.ShapeBox.Name = "ShapeBox";
+            this.ShapeBox.Size = new System.Drawing.Size(133, 21);
+            this.ShapeBox.TabIndex = 4;
+            this.ShapeBox.Text = "Choose the shape";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 682);
+            this.Controls.Add(this.ShapeBox);
+            this.Controls.Add(this.clrBtn);
             this.Controls.Add(this.DrawSpace);
             this.Controls.Add(this.DrawAllBtn);
             this.Controls.Add(this.toolStrip1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyPaint";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -101,6 +137,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Button DrawAllBtn;
         private System.Windows.Forms.PictureBox DrawSpace;
+        private System.Windows.Forms.Button clrBtn;
+        private System.Windows.Forms.ComboBox ShapeBox;
     }
 }
 

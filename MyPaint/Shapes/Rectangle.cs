@@ -12,7 +12,16 @@ namespace MyPaint
         public Rectangle(Color color, int thickness, int x1, int y1, int x2, int y2) : base(color, thickness, x1, y1, x2, y2) { }
         public override void draw(Graphics g)
         {
-            Console.WriteLine("Rectangle({0}, {1}, {2}, {3})", x1, y1, x2, y2);
+            int width = Math.Abs(x1 - x2);
+            int height = Math.Abs(y1 - y2);
+            if (x1 >= x2 && y1 >= y2)
+                g.DrawRectangle(pen, x2, y2, width, height);
+            else if (x2 >= x1 && y2 >= y1)
+                g.DrawRectangle(pen, x1, y1, width, height);
+            else if (x1 >= x2 && y2 >= y1)
+                g.DrawRectangle(pen, x2, y1, width, height);
+            else if (x2 >= x1 && y1 >= y2)
+                g.DrawRectangle(pen, x1, y2, width, height);
         }
     }
 }
