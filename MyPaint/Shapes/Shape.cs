@@ -10,8 +10,8 @@ namespace MyPaint
     public abstract class Shape
     {
         protected Pen pen;
-        public Color penColor { set { pen.Color = penColor; } get { return penColor; } }
-        public int penThickness { set { pen.Width = penThickness; } get { return penThickness; } }
+        public Color penColor;
+        public int penThickness;
         protected int x1, x2, y1, y2;
         public Shape(Color color, int thickness, int x1, int y1, int x2, int y2)
         {
@@ -25,6 +25,6 @@ namespace MyPaint
             this.y1 = y1;
             this.y2 = y2;
         }
-        public abstract void draw();
+        public abstract void draw(Graphics g);
     }
 }
