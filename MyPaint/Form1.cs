@@ -13,65 +13,75 @@ namespace MyPaint
     public partial class Form1 : Form
     {
         Graphics g;
-        ShapeList SList = new ShapeList();
-        ShapeList SList1 = new ShapeList();
+        ShapeList DrawnShapesList = new ShapeList();
         Point StartPoint, FinishPoint;
         Shape shape;
         private Maker MCircle, MLine, MOval, MRectangle, MSquare, MTriangle;
+        const string StatusBarMessage = "Drawing: ";
+        Maker SelectedMaker;
+        bool _mousePressed = false;
+
+        private void ReDraw()
+        {
+            g.Clear(Color.White);
+            DrawnShapesList.DrawAll(g);
+        }
+                                                                             
+        private void LineBtn_Click(object sender, EventArgs e)
+        {
+            CurrentShape.Text = StatusBarMessage + "Line";
+            SelectedMaker = MLine;
+        }
+        private void CircleBtn_Click(object sender, EventArgs e)
+        {
+            CurrentShape.Text = StatusBarMessage + "Circle";
+            SelectedMaker = MCircle;
+        }
+        private void RectangleBtn_Click(object sender, EventArgs e)
+        {
+            CurrentShape.Text = StatusBarMessage + "Rectangle";
+            SelectedMaker = MRectangle;
+        }
+        private void TriangleBtn_Click(object sender, EventArgs e)
+        {
+            CurrentShape.Text = StatusBarMessage + "Triangle";
+            SelectedMaker = MTriangle;
+        }
+
+        private void OvalBtn_Click(object sender, EventArgs e)
+        {
+            CurrentShape.Text = StatusBarMessage + "Line";
+            SelectedMaker = MOval;
+        }
+        private void SquareBtn_Click(object sender, EventArgs e)
+        {
+            CurrentShape.Text = StatusBarMessage + "Square";
+            SelectedMaker = MSquare;
+        }      
 
         private void DrawSpace_MouseUp(object sender, MouseEventArgs e)
         {
             FinishPoint = new Point(e.X, e.Y);
-            if (StartPoint != FinishPoint) {
-                switch (ShapeBox.Text)
-                {
-                    case "Rectangle":
-                        SList1.Add(shape = MRectangle.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                    case "Square":
-                        SList1.Add(shape = MSquare.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                    case "Oval":
-                        SList1.Add(shape = MOval.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                    case "Circle":
-                        SList1.Add(shape = MCircle.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                    case "Triangle":
-                        SList1.Add(shape = MTriangle.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                    case "Line":
-                        SList1.Add(shape = MLine.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                    default:
-                        SList1.Add(shape = MLine.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                        shape.draw(g);
-                        break;
-                }
+            if (StartPoint != FinishPoint) { 
+                DrawnShapesList.Add(shape = SelectedMaker.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
+                shape.draw(g);        
                 //ReDraw();
             }
-        }
-        private void ReDraw()
-        {
-            g.Clear(Color.White);
-            SList1.DrawAll(g);
         }
         private void DrawSpace_MouseDown(object sender, MouseEventArgs e)
         {
             StartPoint = new Point(e.X, e.Y);
+            _mousePressed = true;
         }
-        
-        private void DrawAllBtn_Click(object sender, EventArgs e)
+
+        /*private void DrawSpace_MouseMove(object sender, MouseEventArgs e)
         {
-            g.Clear(Color.White);
-            SList.DrawAll(g);
-        }
+            if (_mousePressed)
+            {
+                shape = SelectedMaker.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y);
+                shape.draw(g);
+            }
+        }*/
 
         private void clrBtn_Click(object sender, EventArgs e)
         {
@@ -80,14 +90,6 @@ namespace MyPaint
 
         public Form1()
         {
-            //static tipification for lab1
-            SList.Add(new Circle(Color.Black, 2, 100, 100, 150, 150));
-            SList.Add(new Line(Color.Black, 2, 200, 170, 340, 30));
-            SList.Add(new Oval(Color.Black, 2, 220, 30, 320, 70));
-            SList.Add(new Rectangle(Color.Black, 2, 360, 30, 460, 70));
-            SList.Add(new Triangle(Color.Black, 2, 480, 30, 580, 70));
-            SList.Add(new Square(Color.Black, 2, 600, 30, 700, 70));
-            //lab1 end
             InitializeComponent();
             g = DrawSpace.CreateGraphics();
             MCircle = new CircleMaker();
@@ -96,6 +98,7 @@ namespace MyPaint
             MRectangle = new RectangleMaker();
             MSquare = new SquareMaker();
             MTriangle = new TriangleMaker();
+            SelectedMaker = MLine;
         }
     }
 }
