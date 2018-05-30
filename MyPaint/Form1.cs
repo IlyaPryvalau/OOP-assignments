@@ -7,23 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Reflection;
 
 namespace MyPaint
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         Graphics g;
         ShapeList DrawnShapesList = new ShapeList();
         Point StartPoint, FinishPoint;
         Shape shape;
-        private Maker MCircle, MLine, MOval, MRectangle, MSquare, MTriangle;
+        private Maker MCircle, MLine, MOval, MRectangle, MSquare, MTriangle, SelectedMaker;
+        private System.Drawing.Drawing2D.DashStyle penStyle;
         const string StatusBarMessage = "Drawing: ";
-        Maker SelectedMaker;
         bool _mousePressed = false;
+        const int FPS = 60; //when being drawn, shapes will be redrawn this amount per second
+        const int TARGET_TIME = 1000 / FPS;
+
 
         private void ReDraw()
         {
-            g.Clear(Color.White);
+            g.Clear(BGColorPBox.BackColor);
             DrawnShapesList.DrawAll(g);
         }
                                                                              
@@ -48,6 +53,91 @@ namespace MyPaint
             SelectedMaker = MTriangle;
         }
 
+        private void LineColorPBox_Click(object sender, EventArgs e)
+        {
+            if (LineColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                LineColorPBox.BackColor = LineColorDialog.Color;
+            }
+        }
+
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            StartPoint = new Point(e.X, e.Y);
+            _mousePressed = true;
+        }
+
+        private void MainForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            FinishPoint = new Point(e.X, e.Y);
+            _mousePressed = false;
+            if (StartPoint != FinishPoint)
+            {
+                Invalidate();
+            }
+        }
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            long start, elapsed, delay;
+
+            if (e.Button == MouseButtons.Left)
+            {
+                start = DateTime.Now.Ticks;
+
+                FinishPoint.X = e.X;
+                FinishPoint.Y = e.Y;
+                Invalidate();
+                elapsed = DateTime.Now.Ticks - start;
+
+                delay = TARGET_TIME - elapsed / 10000;
+
+                if (delay < 0)
+                    delay = 5;
+                /*try
+                {
+                    Thread.Sleep((int)delay);
+                }
+                catch (Exception c)
+                {
+                    CurrentShape.Text = c.StackTrace;
+                }*/
+            }
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            g = e.Graphics;
+            if (_mousePressed)
+                (SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y)).draw(g);
+            else
+                DrawnShapesList.Add(SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
+            DrawnShapesList.DrawAll(g);
+        }
+
+        private void BGColorPBox_Click(object sender, EventArgs e)
+        {
+            if (BGColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                BGColorPBox.BackColor = BGColorDialog.Color;
+                ReDraw();
+            }
+        }         
+
+        private void DashedLinesCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DashedLinesCheckBox.Checked)
+                penStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            else
+                penStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+        }
+
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            g.Dispose();
+        }
+
         private void OvalBtn_Click(object sender, EventArgs e)
         {
             CurrentShape.Text = StatusBarMessage + "Line";
@@ -59,39 +149,17 @@ namespace MyPaint
             SelectedMaker = MSquare;
         }      
 
-        private void DrawSpace_MouseUp(object sender, MouseEventArgs e)
-        {
-            FinishPoint = new Point(e.X, e.Y);
-            if (StartPoint != FinishPoint) { 
-                DrawnShapesList.Add(shape = SelectedMaker.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-                shape.draw(g);        
-                //ReDraw();
-            }
-        }
-        private void DrawSpace_MouseDown(object sender, MouseEventArgs e)
-        {
-            StartPoint = new Point(e.X, e.Y);
-            _mousePressed = true;
-        }
-
-        /*private void DrawSpace_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_mousePressed)
-            {
-                shape = SelectedMaker.Make(Color.Black, 2, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y);
-                shape.draw(g);
-            }
-        }*/
-
         private void clrBtn_Click(object sender, EventArgs e)
         {
-            g.Clear(Color.White);
+            DrawnShapesList.Clear();
+            ReDraw();
         }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
-            g = DrawSpace.CreateGraphics();
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
+            UpdateStyles();
             MCircle = new CircleMaker();
             MLine = new LineMaker();
             MOval = new OvalMaker();
@@ -99,6 +167,7 @@ namespace MyPaint
             MSquare = new SquareMaker();
             MTriangle = new TriangleMaker();
             SelectedMaker = MLine;
+            penStyle = System.Drawing.Drawing2D.DashStyle.Solid;
         }
     }
 }

@@ -33,5 +33,9 @@ namespace MyPaint
                 shape.draw(g);
             }
         }
+        public void Clear()
+        {
+            shapeList.Clear();
+        }
     }
 }

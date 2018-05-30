@@ -1,9 +1,9 @@
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\MyPaint.exe.config
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\MyPaint.exe
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\MyPaint.pdb
-c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csprojResolveAssemblyReference.cache
-c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.Form1.resources
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.Properties.Resources.resources
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csproj.GenerateResource.Cache
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.exe
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.MainForm.resources
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csprojResolveAssemblyReference.cache

@@ -1,6 +1,6 @@
 ﻿namespace MyPaint
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.DrawSpace = new System.Windows.Forms.PictureBox();
             this.clrBtn = new System.Windows.Forms.Button();
             this.BorderColorDialog = new System.Windows.Forms.ColorDialog();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.CurrentShape = new System.Windows.Forms.ToolStripStatusLabel();
             this.GroupBox = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.DashedLinesCheckBox = new System.Windows.Forms.CheckBox();
+            this.LineThicknessUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.BGClolorPBox = new System.Windows.Forms.PictureBox();
-            this.LineClolorPBox = new System.Windows.Forms.PictureBox();
+            this.LineColorPBox = new System.Windows.Forms.PictureBox();
+            this.BGColorPBox = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TriangleBtn = new System.Windows.Forms.Button();
@@ -49,26 +49,15 @@
             this.LineBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DrawSpace)).BeginInit();
+            this.LineColorDialog = new System.Windows.Forms.ColorDialog();
+            this.BGColorDialog = new System.Windows.Forms.ColorDialog();
+            this.ShapeListBox = new System.Windows.Forms.ListBox();
             this.StatusStrip.SuspendLayout();
             this.GroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BGClolorPBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineClolorPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DrawSpace
-            // 
-            this.DrawSpace.AccessibleName = "";
-            this.DrawSpace.BackColor = System.Drawing.Color.White;
-            this.DrawSpace.Location = new System.Drawing.Point(128, 0);
-            this.DrawSpace.Name = "DrawSpace";
-            this.DrawSpace.Size = new System.Drawing.Size(1030, 657);
-            this.DrawSpace.TabIndex = 2;
-            this.DrawSpace.TabStop = false;
-            this.DrawSpace.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DrawSpace_MouseDown);
-            this.DrawSpace.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DrawSpace_MouseMove);
-            this.DrawSpace.MouseUp += new System.Windows.Forms.MouseEventHandler(this.DrawSpace_MouseUp);
             // 
             // clrBtn
             // 
@@ -84,9 +73,9 @@
             // 
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CurrentShape});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 660);
+            this.StatusStrip.Location = new System.Drawing.Point(0, 601);
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(1264, 22);
+            this.StatusStrip.Size = new System.Drawing.Size(1241, 22);
             this.StatusStrip.TabIndex = 5;
             this.StatusStrip.Text = "statusStrip1";
             // 
@@ -98,10 +87,12 @@
             // 
             // GroupBox
             // 
-            this.GroupBox.Controls.Add(this.numericUpDown1);
+            this.GroupBox.BackColor = System.Drawing.SystemColors.Control;
+            this.GroupBox.Controls.Add(this.DashedLinesCheckBox);
+            this.GroupBox.Controls.Add(this.LineThicknessUpDown);
             this.GroupBox.Controls.Add(this.label3);
-            this.GroupBox.Controls.Add(this.BGClolorPBox);
-            this.GroupBox.Controls.Add(this.LineClolorPBox);
+            this.GroupBox.Controls.Add(this.LineColorPBox);
+            this.GroupBox.Controls.Add(this.BGColorPBox);
             this.GroupBox.Controls.Add(this.comboBox1);
             this.GroupBox.Controls.Add(this.label2);
             this.GroupBox.Controls.Add(this.TriangleBtn);
@@ -114,47 +105,78 @@
             this.GroupBox.Controls.Add(this.clrBtn);
             this.GroupBox.Location = new System.Drawing.Point(0, 0);
             this.GroupBox.Name = "GroupBox";
-            this.GroupBox.Size = new System.Drawing.Size(122, 657);
+            this.GroupBox.Size = new System.Drawing.Size(122, 600);
             this.GroupBox.TabIndex = 6;
             this.GroupBox.TabStop = false;
             // 
-            // numericUpDown1
+            // DashedLinesCheckBox
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(12, 422);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(98, 20);
-            this.numericUpDown1.TabIndex = 7;
+            this.DashedLinesCheckBox.AutoSize = true;
+            this.DashedLinesCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DashedLinesCheckBox.Location = new System.Drawing.Point(16, 416);
+            this.DashedLinesCheckBox.Name = "DashedLinesCheckBox";
+            this.DashedLinesCheckBox.Size = new System.Drawing.Size(106, 20);
+            this.DashedLinesCheckBox.TabIndex = 8;
+            this.DashedLinesCheckBox.Text = "Dashed lines";
+            this.DashedLinesCheckBox.UseVisualStyleBackColor = true;
+            this.DashedLinesCheckBox.CheckedChanged += new System.EventHandler(this.DashedLinesCheckBox_CheckedChanged);
+            // 
+            // LineThicknessUpDown
+            // 
+            this.LineThicknessUpDown.Location = new System.Drawing.Point(12, 471);
+            this.LineThicknessUpDown.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.LineThicknessUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.LineThicknessUpDown.Name = "LineThicknessUpDown";
+            this.LineThicknessUpDown.Size = new System.Drawing.Size(98, 20);
+            this.LineThicknessUpDown.TabIndex = 7;
+            this.LineThicknessUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(13, 403);
+            this.label3.Location = new System.Drawing.Point(13, 452);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 16);
             this.label3.TabIndex = 15;
             this.label3.Text = "Line thickness:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BGClolorPBox
+            // LineColorPBox
             // 
-            this.BGClolorPBox.BackColor = System.Drawing.Color.White;
-            this.BGClolorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.BGClolorPBox.Location = new System.Drawing.Point(62, 360);
-            this.BGClolorPBox.Name = "BGClolorPBox";
-            this.BGClolorPBox.Size = new System.Drawing.Size(54, 27);
-            this.BGClolorPBox.TabIndex = 14;
-            this.BGClolorPBox.TabStop = false;
+            this.LineColorPBox.BackColor = System.Drawing.Color.Black;
+            this.LineColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.LineColorPBox.Location = new System.Drawing.Point(12, 349);
+            this.LineColorPBox.Name = "LineColorPBox";
+            this.LineColorPBox.Size = new System.Drawing.Size(54, 27);
+            this.LineColorPBox.TabIndex = 14;
+            this.LineColorPBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.LineColorPBox, "Foreground color");
+            this.LineColorPBox.Click += new System.EventHandler(this.LineColorPBox_Click);
             // 
-            // LineClolorPBox
+            // BGColorPBox
             // 
-            this.LineClolorPBox.BackColor = System.Drawing.Color.Black;
-            this.LineClolorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LineClolorPBox.Location = new System.Drawing.Point(6, 360);
-            this.LineClolorPBox.Name = "LineClolorPBox";
-            this.LineClolorPBox.Size = new System.Drawing.Size(57, 27);
-            this.LineClolorPBox.TabIndex = 7;
-            this.LineClolorPBox.TabStop = false;
+            this.BGColorPBox.BackColor = System.Drawing.Color.White;
+            this.BGColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.BGColorPBox.Location = new System.Drawing.Point(49, 360);
+            this.BGColorPBox.Name = "BGColorPBox";
+            this.BGColorPBox.Size = new System.Drawing.Size(57, 27);
+            this.BGColorPBox.TabIndex = 7;
+            this.BGColorPBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.BGColorPBox, "Background color");
+            this.BGColorPBox.Click += new System.EventHandler(this.BGColorPBox_Click);
             // 
             // comboBox1
             // 
@@ -182,6 +204,7 @@
             this.TriangleBtn.Name = "TriangleBtn";
             this.TriangleBtn.Size = new System.Drawing.Size(37, 37);
             this.TriangleBtn.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.TriangleBtn, "draw triangle");
             this.TriangleBtn.UseVisualStyleBackColor = true;
             this.TriangleBtn.Click += new System.EventHandler(this.TriangleBtn_Click);
             // 
@@ -192,6 +215,7 @@
             this.SquareBtn.Name = "SquareBtn";
             this.SquareBtn.Size = new System.Drawing.Size(37, 37);
             this.SquareBtn.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.SquareBtn, "draw square");
             this.SquareBtn.UseVisualStyleBackColor = true;
             this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
             // 
@@ -202,6 +226,7 @@
             this.RectangleBtn.Name = "RectangleBtn";
             this.RectangleBtn.Size = new System.Drawing.Size(37, 37);
             this.RectangleBtn.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.RectangleBtn, "draw rectangle");
             this.RectangleBtn.UseVisualStyleBackColor = true;
             this.RectangleBtn.Click += new System.EventHandler(this.RectangleBtn_Click);
             // 
@@ -212,6 +237,7 @@
             this.OvalBtn.Name = "OvalBtn";
             this.OvalBtn.Size = new System.Drawing.Size(37, 37);
             this.OvalBtn.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.OvalBtn, "draw oval");
             this.OvalBtn.UseVisualStyleBackColor = true;
             this.OvalBtn.Click += new System.EventHandler(this.OvalBtn_Click);
             // 
@@ -222,16 +248,19 @@
             this.CircleBtn.Name = "CircleBtn";
             this.CircleBtn.Size = new System.Drawing.Size(37, 37);
             this.CircleBtn.TabIndex = 8;
+            this.toolTip1.SetToolTip(this.CircleBtn, "draw circle");
             this.CircleBtn.UseVisualStyleBackColor = true;
             this.CircleBtn.Click += new System.EventHandler(this.CircleBtn_Click);
             // 
             // LineBtn
             // 
+            this.LineBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.LineBtn.Image = global::MyPaint.Properties.Resources.Line2;
             this.LineBtn.Location = new System.Drawing.Point(12, 108);
             this.LineBtn.Name = "LineBtn";
             this.LineBtn.Size = new System.Drawing.Size(37, 37);
             this.LineBtn.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.LineBtn, "draw line");
             this.LineBtn.UseVisualStyleBackColor = true;
             this.LineBtn.Click += new System.EventHandler(this.LineBtn_Click);
             // 
@@ -245,34 +274,51 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "Basic shapes:";
             // 
-            // Form1
+            // ShapeListBox
+            // 
+            this.ShapeListBox.BackColor = System.Drawing.SystemColors.Control;
+            this.ShapeListBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ShapeListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ShapeListBox.FormattingEnabled = true;
+            this.ShapeListBox.ItemHeight = 18;
+            this.ShapeListBox.Location = new System.Drawing.Point(1134, 0);
+            this.ShapeListBox.Name = "ShapeListBox";
+            this.ShapeListBox.Size = new System.Drawing.Size(107, 598);
+            this.ShapeListBox.TabIndex = 7;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 682);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1241, 623);
+            this.Controls.Add(this.ShapeListBox);
             this.Controls.Add(this.GroupBox);
             this.Controls.Add(this.StatusStrip);
-            this.Controls.Add(this.DrawSpace);
+            this.DoubleBuffered = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyPaint";
-            ((System.ComponentModel.ISupportInitialize)(this.DrawSpace)).EndInit();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
             this.GroupBox.ResumeLayout(false);
             this.GroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BGClolorPBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineClolorPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox DrawSpace;
         private System.Windows.Forms.Button clrBtn;
         private System.Windows.Forms.ColorDialog BorderColorDialog;
         private System.Windows.Forms.StatusStrip StatusStrip;
@@ -285,13 +331,17 @@
         private System.Windows.Forms.Button CircleBtn;
         private System.Windows.Forms.Button LineBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox BGClolorPBox;
-        private System.Windows.Forms.PictureBox LineClolorPBox;
+        private System.Windows.Forms.PictureBox LineColorPBox;
+        private System.Windows.Forms.PictureBox BGColorPBox;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown LineThicknessUpDown;
+        private System.Windows.Forms.ColorDialog LineColorDialog;
+        private System.Windows.Forms.ColorDialog BGColorDialog;
+        private System.Windows.Forms.ListBox ShapeListBox;
+        private System.Windows.Forms.CheckBox DashedLinesCheckBox;
     }
 }
 
