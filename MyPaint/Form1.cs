@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Threading;
 using System.Reflection;
 
@@ -144,6 +145,16 @@ namespace MyPaint
         {
             StartPoint = new Point(e.X, e.Y);
             _mousePressed = true;
+        }
+
+        private void MainForm_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+
+        private void MainForm_MouseEnter(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Cross;
         }
 
         private void MainForm_MouseUp(object sender, MouseEventArgs e)

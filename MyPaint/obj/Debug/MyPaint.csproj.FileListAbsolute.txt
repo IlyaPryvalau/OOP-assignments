@@ -11,3 +11,4 @@ C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\Ax
 C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csproj.ResolveComReference.cache
 C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\Interop.WMPLib.dll
 C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csprojResolveAssemblyReference.cache
