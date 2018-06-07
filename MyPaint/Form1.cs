@@ -17,47 +17,126 @@ namespace MyPaint
         Graphics g;
         ShapeList DrawnShapesList = new ShapeList();
         Point StartPoint, FinishPoint;
-        Shape shape;
+        Shape DrawnShape;
+        List<Shape> seriList;
+        private Serializer serializer = new Serializer();
         private Maker MCircle, MLine, MOval, MRectangle, MSquare, MTriangle, SelectedMaker;
         private System.Drawing.Drawing2D.DashStyle penStyle;
         const string StatusBarMessage = "Drawing: ";
-        bool _mousePressed = false;
-        const int FPS = 60; //when being drawn, shapes will be redrawn this amount per second
-        const int TARGET_TIME = 1000 / FPS;
+        string SelectedShapeName;
+        bool _mousePressed = false, _drawnShapeIsOriginal = true;
 
-
-        private void ReDraw()
-        {
-            g.Clear(BGColorPBox.BackColor);
-            DrawnShapesList.DrawAll(g);
-        }
-                                                                             
+        //OnClick button events for basic shapes                                                                    
         private void LineBtn_Click(object sender, EventArgs e)
         {
-            CurrentShape.Text = StatusBarMessage + "Line";
+            SelectedShapeName = "Line";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MLine;
         }
         private void CircleBtn_Click(object sender, EventArgs e)
         {
-            CurrentShape.Text = StatusBarMessage + "Circle";
+            SelectedShapeName = "Circle";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MCircle;
         }
         private void RectangleBtn_Click(object sender, EventArgs e)
         {
-            CurrentShape.Text = StatusBarMessage + "Rectangle";
+            SelectedShapeName = "Rectangle";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MRectangle;
         }
         private void TriangleBtn_Click(object sender, EventArgs e)
         {
-            CurrentShape.Text = StatusBarMessage + "Triangle";
+            SelectedShapeName = "Triangle";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MTriangle;
         }
+        private void OvalBtn_Click(object sender, EventArgs e)
+        {
+            SelectedShapeName = "Oval";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
+            SelectedMaker = MOval;
+        }
+        private void SquareBtn_Click(object sender, EventArgs e)
+        {
+            SelectedShapeName = "Squre";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
+            SelectedMaker = MSquare;
+        }
 
+        //background color change event handler
         private void LineColorPBox_Click(object sender, EventArgs e)
         {
             if (LineColorDialog.ShowDialog() == DialogResult.OK)
             {
                 LineColorPBox.BackColor = LineColorDialog.Color;
+            }
+        }
+
+        private void ShapeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ShapeListBox.SelectedIndex > -1)
+            {
+                changeBtn.Enabled = true;
+                deleteBtn.Enabled = true;
+                Shape S = DrawnShapesList.GetShape(ShapeListBox.SelectedIndex);
+                Invalidate();
+                Update();
+                g = CreateGraphics();
+                MRectangle.Make(Color.Purple, 4, System.Drawing.Drawing2D.DashStyle.Dash, S.getX1(), S.getY1(), S.getX2(), S.getY2()).draw(g);
+            } 
+            else
+            {
+                Invalidate();
+            }
+        }
+
+        private void changeBtn_Click(object sender, EventArgs e)
+        {
+            Shape shapeToChange = DrawnShapesList.GetShape(ShapeListBox.SelectedIndex);
+            shapeToChange.ChangePenProperties(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle);
+            Invalidate();
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            deleteBtn.Enabled = false;
+            changeBtn.Enabled = false;
+            DrawnShapesList.RemoveShape(ShapeListBox.SelectedIndex);
+            ShapeListBox.Items.RemoveAt(ShapeListBox.SelectedIndex);
+            Invalidate();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "All files(*.*) | *.dat";
+            seriList = DrawnShapesList.GetList();
+            if (ShapeListBox.Items.Count != 0)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    serializer.Serialize(seriList, saveFileDialog1.FileName);
+                }
+            }
+            else
+                MessageBox.Show("Nothing to save!");
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "All files(*.*) | *.dat";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                seriList = serializer.DeSerialize(openFileDialog1.FileName);            
+                ShapeListBox.Items.Clear();
+                foreach (Shape shape in seriList)
+                {
+                    shape.createPen();
+                    string shapeName = shape.GetType().ToString().Substring(8);
+                    ShapeListBox.Items.Add(shapeName);
+                    DrawnShapesList.setList(seriList);
+                    Invalidate();
+                }
             }
         }
 
@@ -73,54 +152,38 @@ namespace MyPaint
             _mousePressed = false;
             if (StartPoint != FinishPoint)
             {
+                if (_drawnShapeIsOriginal)
+                DrawnShape = SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value,
+                penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y);
+                DrawnShapesList.Add(DrawnShape);
+                ShapeListBox.Items.Add(SelectedShapeName);
                 Invalidate();
             }
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
-            long start, elapsed, delay;
-
             if (e.Button == MouseButtons.Left)
             {
-                start = DateTime.Now.Ticks;
-
                 FinishPoint.X = e.X;
                 FinishPoint.Y = e.Y;
                 Invalidate();
-                elapsed = DateTime.Now.Ticks - start;
-
-                delay = TARGET_TIME - elapsed / 10000;
-
-                if (delay < 0)
-                    delay = 5;
-                /*try
-                {
-                    Thread.Sleep((int)delay);
-                }
-                catch (Exception c)
-                {
-                    CurrentShape.Text = c.StackTrace;
-                }*/
             }
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
             g = e.Graphics;
+            DrawnShapesList.DrawAll(g);
             if (_mousePressed)
                 (SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y)).draw(g);
-            else
-                DrawnShapesList.Add(SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y));
-            DrawnShapesList.DrawAll(g);
         }
 
         private void BGColorPBox_Click(object sender, EventArgs e)
         {
             if (BGColorDialog.ShowDialog() == DialogResult.OK)
             {
-                BGColorPBox.BackColor = BGColorDialog.Color;
-                ReDraw();
+                BackColor = BGColorPBox.BackColor = BGColorDialog.Color;
             }
         }         
 
@@ -138,21 +201,14 @@ namespace MyPaint
             g.Dispose();
         }
 
-        private void OvalBtn_Click(object sender, EventArgs e)
-        {
-            CurrentShape.Text = StatusBarMessage + "Line";
-            SelectedMaker = MOval;
-        }
-        private void SquareBtn_Click(object sender, EventArgs e)
-        {
-            CurrentShape.Text = StatusBarMessage + "Square";
-            SelectedMaker = MSquare;
-        }      
-
         private void clrBtn_Click(object sender, EventArgs e)
         {
             DrawnShapesList.Clear();
-            ReDraw();
+            ShapeListBox.Items.Clear();
+            changeBtn.Enabled = false;
+            deleteBtn.Enabled = false;
+            Invalidate();
+            Update();
         }
 
         public MainForm()
@@ -167,6 +223,8 @@ namespace MyPaint
             MSquare = new SquareMaker();
             MTriangle = new TriangleMaker();
             SelectedMaker = MLine;
+            SelectedShapeName = "Line";
+            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             penStyle = System.Drawing.Drawing2D.DashStyle.Solid;
         }
     }

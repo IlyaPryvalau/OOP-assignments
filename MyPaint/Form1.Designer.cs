@@ -33,7 +33,6 @@
             this.BorderColorDialog = new System.Windows.Forms.ColorDialog();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.CurrentShape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.GroupBox = new System.Windows.Forms.GroupBox();
             this.DashedLinesCheckBox = new System.Windows.Forms.CheckBox();
             this.LineThicknessUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,19 +48,34 @@
             this.LineBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.LineColorDialog = new System.Windows.Forms.ColorDialog();
             this.BGColorDialog = new System.Windows.Forms.ColorDialog();
             this.ShapeListBox = new System.Windows.Forms.ListBox();
+            this.changeBtn = new System.Windows.Forms.Button();
+            this.deleteBtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.shapeListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.StatusStrip.SuspendLayout();
-            this.GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shapeListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // clrBtn
             // 
-            this.clrBtn.Location = new System.Drawing.Point(12, 24);
+            this.clrBtn.Location = new System.Drawing.Point(11, 39);
             this.clrBtn.Name = "clrBtn";
             this.clrBtn.Size = new System.Drawing.Size(94, 32);
             this.clrBtn.TabIndex = 3;
@@ -81,39 +95,16 @@
             // 
             // CurrentShape
             // 
+            this.CurrentShape.BackColor = System.Drawing.SystemColors.Control;
             this.CurrentShape.Name = "CurrentShape";
             this.CurrentShape.Size = new System.Drawing.Size(87, 17);
             this.CurrentShape.Text = "Current shape: ";
-            // 
-            // GroupBox
-            // 
-            this.GroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.GroupBox.Controls.Add(this.DashedLinesCheckBox);
-            this.GroupBox.Controls.Add(this.LineThicknessUpDown);
-            this.GroupBox.Controls.Add(this.label3);
-            this.GroupBox.Controls.Add(this.LineColorPBox);
-            this.GroupBox.Controls.Add(this.BGColorPBox);
-            this.GroupBox.Controls.Add(this.comboBox1);
-            this.GroupBox.Controls.Add(this.label2);
-            this.GroupBox.Controls.Add(this.TriangleBtn);
-            this.GroupBox.Controls.Add(this.SquareBtn);
-            this.GroupBox.Controls.Add(this.RectangleBtn);
-            this.GroupBox.Controls.Add(this.OvalBtn);
-            this.GroupBox.Controls.Add(this.CircleBtn);
-            this.GroupBox.Controls.Add(this.LineBtn);
-            this.GroupBox.Controls.Add(this.label1);
-            this.GroupBox.Controls.Add(this.clrBtn);
-            this.GroupBox.Location = new System.Drawing.Point(0, 0);
-            this.GroupBox.Name = "GroupBox";
-            this.GroupBox.Size = new System.Drawing.Size(122, 600);
-            this.GroupBox.TabIndex = 6;
-            this.GroupBox.TabStop = false;
             // 
             // DashedLinesCheckBox
             // 
             this.DashedLinesCheckBox.AutoSize = true;
             this.DashedLinesCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DashedLinesCheckBox.Location = new System.Drawing.Point(16, 416);
+            this.DashedLinesCheckBox.Location = new System.Drawing.Point(6, 449);
             this.DashedLinesCheckBox.Name = "DashedLinesCheckBox";
             this.DashedLinesCheckBox.Size = new System.Drawing.Size(106, 20);
             this.DashedLinesCheckBox.TabIndex = 8;
@@ -123,7 +114,7 @@
             // 
             // LineThicknessUpDown
             // 
-            this.LineThicknessUpDown.Location = new System.Drawing.Point(12, 471);
+            this.LineThicknessUpDown.Location = new System.Drawing.Point(8, 502);
             this.LineThicknessUpDown.Maximum = new decimal(new int[] {
             20,
             0,
@@ -147,7 +138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(13, 452);
+            this.label3.Location = new System.Drawing.Point(9, 479);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 16);
             this.label3.TabIndex = 15;
@@ -158,7 +149,7 @@
             // 
             this.LineColorPBox.BackColor = System.Drawing.Color.Black;
             this.LineColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LineColorPBox.Location = new System.Drawing.Point(12, 349);
+            this.LineColorPBox.Location = new System.Drawing.Point(11, 405);
             this.LineColorPBox.Name = "LineColorPBox";
             this.LineColorPBox.Size = new System.Drawing.Size(54, 27);
             this.LineColorPBox.TabIndex = 14;
@@ -170,7 +161,7 @@
             // 
             this.BGColorPBox.BackColor = System.Drawing.Color.White;
             this.BGColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.BGColorPBox.Location = new System.Drawing.Point(49, 360);
+            this.BGColorPBox.Location = new System.Drawing.Point(39, 416);
             this.BGColorPBox.Name = "BGColorPBox";
             this.BGColorPBox.Size = new System.Drawing.Size(57, 27);
             this.BGColorPBox.TabIndex = 7;
@@ -181,7 +172,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 317);
+            this.comboBox1.Location = new System.Drawing.Point(2, 378);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(110, 21);
             this.comboBox1.TabIndex = 7;
@@ -190,7 +181,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(21, 271);
+            this.label2.Location = new System.Drawing.Point(22, 343);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 32);
             this.label2.TabIndex = 13;
@@ -200,55 +191,55 @@
             // TriangleBtn
             // 
             this.TriangleBtn.Image = global::MyPaint.Properties.Resources.Triangle;
-            this.TriangleBtn.Location = new System.Drawing.Point(69, 219);
+            this.TriangleBtn.Location = new System.Drawing.Point(67, 229);
             this.TriangleBtn.Name = "TriangleBtn";
             this.TriangleBtn.Size = new System.Drawing.Size(37, 37);
             this.TriangleBtn.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.TriangleBtn, "draw triangle");
+            this.toolTip1.SetToolTip(this.TriangleBtn, "Triangle");
             this.TriangleBtn.UseVisualStyleBackColor = true;
             this.TriangleBtn.Click += new System.EventHandler(this.TriangleBtn_Click);
             // 
             // SquareBtn
             // 
             this.SquareBtn.Image = global::MyPaint.Properties.Resources.Square;
-            this.SquareBtn.Location = new System.Drawing.Point(12, 219);
+            this.SquareBtn.Location = new System.Drawing.Point(10, 229);
             this.SquareBtn.Name = "SquareBtn";
             this.SquareBtn.Size = new System.Drawing.Size(37, 37);
             this.SquareBtn.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.SquareBtn, "draw square");
+            this.toolTip1.SetToolTip(this.SquareBtn, "Square");
             this.SquareBtn.UseVisualStyleBackColor = true;
             this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
             // 
             // RectangleBtn
             // 
             this.RectangleBtn.Image = global::MyPaint.Properties.Resources.Rectangle;
-            this.RectangleBtn.Location = new System.Drawing.Point(69, 163);
+            this.RectangleBtn.Location = new System.Drawing.Point(67, 171);
             this.RectangleBtn.Name = "RectangleBtn";
             this.RectangleBtn.Size = new System.Drawing.Size(37, 37);
             this.RectangleBtn.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.RectangleBtn, "draw rectangle");
+            this.toolTip1.SetToolTip(this.RectangleBtn, "Rectangle");
             this.RectangleBtn.UseVisualStyleBackColor = true;
             this.RectangleBtn.Click += new System.EventHandler(this.RectangleBtn_Click);
             // 
             // OvalBtn
             // 
             this.OvalBtn.Image = global::MyPaint.Properties.Resources.Oval;
-            this.OvalBtn.Location = new System.Drawing.Point(12, 163);
+            this.OvalBtn.Location = new System.Drawing.Point(10, 171);
             this.OvalBtn.Name = "OvalBtn";
             this.OvalBtn.Size = new System.Drawing.Size(37, 37);
             this.OvalBtn.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.OvalBtn, "draw oval");
+            this.toolTip1.SetToolTip(this.OvalBtn, "Oval");
             this.OvalBtn.UseVisualStyleBackColor = true;
             this.OvalBtn.Click += new System.EventHandler(this.OvalBtn_Click);
             // 
             // CircleBtn
             // 
             this.CircleBtn.Image = global::MyPaint.Properties.Resources.Circle;
-            this.CircleBtn.Location = new System.Drawing.Point(69, 108);
+            this.CircleBtn.Location = new System.Drawing.Point(67, 114);
             this.CircleBtn.Name = "CircleBtn";
             this.CircleBtn.Size = new System.Drawing.Size(37, 37);
             this.CircleBtn.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.CircleBtn, "draw circle");
+            this.toolTip1.SetToolTip(this.CircleBtn, "Circle");
             this.CircleBtn.UseVisualStyleBackColor = true;
             this.CircleBtn.Click += new System.EventHandler(this.CircleBtn_Click);
             // 
@@ -256,11 +247,11 @@
             // 
             this.LineBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.LineBtn.Image = global::MyPaint.Properties.Resources.Line2;
-            this.LineBtn.Location = new System.Drawing.Point(12, 108);
+            this.LineBtn.Location = new System.Drawing.Point(10, 114);
             this.LineBtn.Name = "LineBtn";
             this.LineBtn.Size = new System.Drawing.Size(37, 37);
             this.LineBtn.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.LineBtn, "draw line");
+            this.toolTip1.SetToolTip(this.LineBtn, "Line");
             this.LineBtn.UseVisualStyleBackColor = true;
             this.LineBtn.Click += new System.EventHandler(this.LineBtn_Click);
             // 
@@ -268,11 +259,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 72);
+            this.label1.Location = new System.Drawing.Point(11, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Basic shapes:";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::MyPaint.Properties.Resources.Triangle;
+            this.button1.Location = new System.Drawing.Point(39, 290);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 37);
+            this.button1.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.button1, "Triangle");
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ShapeListBox
             // 
@@ -281,21 +282,130 @@
             this.ShapeListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ShapeListBox.FormattingEnabled = true;
             this.ShapeListBox.ItemHeight = 18;
-            this.ShapeListBox.Location = new System.Drawing.Point(1134, 0);
+            this.ShapeListBox.Location = new System.Drawing.Point(7, 3);
+            this.ShapeListBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.ShapeListBox.Name = "ShapeListBox";
-            this.ShapeListBox.Size = new System.Drawing.Size(107, 598);
+            this.ShapeListBox.Size = new System.Drawing.Size(115, 472);
             this.ShapeListBox.TabIndex = 7;
+            this.ShapeListBox.SelectedIndexChanged += new System.EventHandler(this.ShapeListBox_SelectedIndexChanged);
+            // 
+            // changeBtn
+            // 
+            this.changeBtn.Enabled = false;
+            this.changeBtn.Location = new System.Drawing.Point(7, 485);
+            this.changeBtn.Name = "changeBtn";
+            this.changeBtn.Size = new System.Drawing.Size(115, 29);
+            this.changeBtn.TabIndex = 16;
+            this.changeBtn.Text = "Change";
+            this.changeBtn.UseVisualStyleBackColor = true;
+            this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
+            // 
+            // deleteBtn
+            // 
+            this.deleteBtn.Enabled = false;
+            this.deleteBtn.Location = new System.Drawing.Point(7, 520);
+            this.deleteBtn.Name = "deleteBtn";
+            this.deleteBtn.Size = new System.Drawing.Size(115, 27);
+            this.deleteBtn.TabIndex = 17;
+            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.UseVisualStyleBackColor = true;
+            this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.ShapeListBox);
+            this.panel1.Controls.Add(this.deleteBtn);
+            this.panel1.Controls.Add(this.changeBtn);
+            this.panel1.Location = new System.Drawing.Point(1114, 38);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(127, 552);
+            this.panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.clrBtn);
+            this.panel2.Controls.Add(this.LineThicknessUpDown);
+            this.panel2.Controls.Add(this.LineBtn);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.DashedLinesCheckBox);
+            this.panel2.Controls.Add(this.CircleBtn);
+            this.panel2.Controls.Add(this.OvalBtn);
+            this.panel2.Controls.Add(this.RectangleBtn);
+            this.panel2.Controls.Add(this.SquareBtn);
+            this.panel2.Controls.Add(this.BGColorPBox);
+            this.panel2.Controls.Add(this.TriangleBtn);
+            this.panel2.Controls.Add(this.LineColorPBox);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Location = new System.Drawing.Point(0, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(121, 552);
+            this.panel2.TabIndex = 19;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(0);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1241, 28);
+            this.menuStrip1.TabIndex = 20;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.openToolStripMenuItem});
+            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // shapeListBindingSource
+            // 
+            this.shapeListBindingSource.DataSource = typeof(MyPaint.ShapeList);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // MainForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1241, 623);
-            this.Controls.Add(this.ShapeListBox);
-            this.Controls.Add(this.GroupBox);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.StatusStrip);
+            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -308,11 +418,15 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseUp);
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
-            this.GroupBox.ResumeLayout(false);
-            this.GroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shapeListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,7 +437,6 @@
         private System.Windows.Forms.ColorDialog BorderColorDialog;
         private System.Windows.Forms.StatusStrip StatusStrip;
         private System.Windows.Forms.ToolStripStatusLabel CurrentShape;
-        private System.Windows.Forms.GroupBox GroupBox;
         private System.Windows.Forms.Button TriangleBtn;
         private System.Windows.Forms.Button SquareBtn;
         private System.Windows.Forms.Button RectangleBtn;
@@ -342,6 +455,18 @@
         private System.Windows.Forms.ColorDialog BGColorDialog;
         private System.Windows.Forms.ListBox ShapeListBox;
         private System.Windows.Forms.CheckBox DashedLinesCheckBox;
+        private System.Windows.Forms.Button changeBtn;
+        private System.Windows.Forms.BindingSource shapeListBindingSource;
+        private System.Windows.Forms.Button deleteBtn;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

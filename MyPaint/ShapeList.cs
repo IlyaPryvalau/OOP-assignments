@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyPaint
 {
+    [Serializable]
     class ShapeList
     {
         private List<Shape> shapeList;
@@ -26,6 +27,10 @@ namespace MyPaint
         {
             shapeList.Add(shape);
         }
+        public void RemoveShape(int index)
+        {
+            shapeList.RemoveAt(index);
+        }
         public void DrawAll(Graphics g)
         {
             foreach (Shape shape in shapeList)
@@ -36,6 +41,10 @@ namespace MyPaint
         public void Clear()
         {
             shapeList.Clear();
+        }
+        public void setList(List<Shape> newList)
+        {
+            shapeList = newList;
         }
     }
 }

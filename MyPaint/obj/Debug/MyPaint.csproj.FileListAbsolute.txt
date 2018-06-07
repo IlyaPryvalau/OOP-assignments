@@ -6,4 +6,8 @@ c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\My
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.exe
 c:\users\user\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.pdb
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.MainForm.resources
-C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csprojResolveAssemblyReference.cache
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\Interop.WMPLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\obj\Debug\MyPaint.csproj.ResolveComReference.cache
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\Interop.WMPLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\AxInterop.WMPLib.dll
