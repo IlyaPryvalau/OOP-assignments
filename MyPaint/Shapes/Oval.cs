@@ -10,7 +10,16 @@ namespace MyPaint
     [Serializable]
     public class Oval : Shape
     {
-        public Oval(Color color, int thickness, System.Drawing.Drawing2D.DashStyle style, int x1, int y1, int x2, int y2) : base(color, thickness, style, x1, y1, x2, y2) { }
+        public Oval(Color color, int thickness, System.Drawing.Drawing2D.DashStyle style, int x1, int y1, int x2, int y2) : base(color, thickness, style, x1, y1, x2, y2)
+        {
+            name = "Oval";
+        }
+
+        public override string getName()
+        {
+            return name;
+        }
+
         public override void draw(Graphics g)
         {
             int width = Math.Abs(x1 - x2);

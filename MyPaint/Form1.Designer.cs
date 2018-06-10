@@ -53,12 +53,16 @@
             this.ShapeListBox = new System.Windows.Forms.ListBox();
             this.changeBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.EditPanel = new System.Windows.Forms.Panel();
             this.DrawingPanel = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hidePanelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideLeft = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideRight = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.shapeListBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -66,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.EditPanel.SuspendLayout();
             this.DrawingPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.shapeListBindingSource)).BeginInit();
@@ -270,11 +274,12 @@
             this.ShapeListBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ShapeListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ShapeListBox.FormattingEnabled = true;
+            this.ShapeListBox.HorizontalScrollbar = true;
             this.ShapeListBox.ItemHeight = 18;
             this.ShapeListBox.Location = new System.Drawing.Point(7, 3);
             this.ShapeListBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.ShapeListBox.Name = "ShapeListBox";
-            this.ShapeListBox.Size = new System.Drawing.Size(115, 472);
+            this.ShapeListBox.Size = new System.Drawing.Size(112, 472);
             this.ShapeListBox.TabIndex = 7;
             this.ShapeListBox.SelectedIndexChanged += new System.EventHandler(this.ShapeListBox_SelectedIndexChanged);
             // 
@@ -283,7 +288,7 @@
             this.changeBtn.Enabled = false;
             this.changeBtn.Location = new System.Drawing.Point(7, 485);
             this.changeBtn.Name = "changeBtn";
-            this.changeBtn.Size = new System.Drawing.Size(115, 29);
+            this.changeBtn.Size = new System.Drawing.Size(112, 29);
             this.changeBtn.TabIndex = 16;
             this.changeBtn.Text = "Change";
             this.changeBtn.UseVisualStyleBackColor = true;
@@ -294,23 +299,23 @@
             this.deleteBtn.Enabled = false;
             this.deleteBtn.Location = new System.Drawing.Point(7, 520);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(115, 27);
+            this.deleteBtn.Size = new System.Drawing.Size(112, 27);
             this.deleteBtn.TabIndex = 17;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
-            // panel1
+            // EditPanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.ShapeListBox);
-            this.panel1.Controls.Add(this.deleteBtn);
-            this.panel1.Controls.Add(this.changeBtn);
-            this.panel1.Location = new System.Drawing.Point(1114, 38);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 552);
-            this.panel1.TabIndex = 18;
+            this.EditPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.EditPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.EditPanel.Controls.Add(this.ShapeListBox);
+            this.EditPanel.Controls.Add(this.deleteBtn);
+            this.EditPanel.Controls.Add(this.changeBtn);
+            this.EditPanel.Location = new System.Drawing.Point(1114, 38);
+            this.EditPanel.Name = "EditPanel";
+            this.EditPanel.Size = new System.Drawing.Size(127, 552);
+            this.EditPanel.TabIndex = 18;
             // 
             // DrawingPanel
             // 
@@ -342,7 +347,8 @@
             this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1241, 28);
@@ -373,6 +379,39 @@
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hidePanelsToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // hidePanelsToolStripMenuItem
+            // 
+            this.hidePanelsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hideLeft,
+            this.hideRight});
+            this.hidePanelsToolStripMenuItem.Name = "hidePanelsToolStripMenuItem";
+            this.hidePanelsToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.hidePanelsToolStripMenuItem.Text = "Hide panels";
+            // 
+            // hideLeft
+            // 
+            this.hideLeft.CheckOnClick = true;
+            this.hideLeft.Name = "hideLeft";
+            this.hideLeft.Size = new System.Drawing.Size(159, 22);
+            this.hideLeft.Text = "Hide left panel";
+            this.hideLeft.CheckedChanged += new System.EventHandler(this.hideLeft_CheckedChanged);
+            // 
+            // hideRight
+            // 
+            this.hideRight.CheckOnClick = true;
+            this.hideRight.Name = "hideRight";
+            this.hideRight.Size = new System.Drawing.Size(159, 22);
+            this.hideRight.Text = "Hide right panel";
+            this.hideRight.CheckedChanged += new System.EventHandler(this.hideRight_CheckedChanged);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -389,7 +428,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1241, 623);
             this.Controls.Add(this.DrawingPanel);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.EditPanel);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
@@ -411,7 +450,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.EditPanel.ResumeLayout(false);
             this.DrawingPanel.ResumeLayout(false);
             this.DrawingPanel.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -448,7 +487,7 @@
         private System.Windows.Forms.Button changeBtn;
         private System.Windows.Forms.BindingSource shapeListBindingSource;
         private System.Windows.Forms.Button deleteBtn;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel EditPanel;
         private System.Windows.Forms.Panel DrawingPanel;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
@@ -456,6 +495,10 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hidePanelsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hideLeft;
+        private System.Windows.Forms.ToolStripMenuItem hideRight;
     }
 }
 

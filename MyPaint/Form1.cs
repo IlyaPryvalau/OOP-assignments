@@ -30,40 +30,35 @@ namespace MyPaint
         //OnClick button events for basic shapes                                                                    
         private void LineBtn_Click(object sender, EventArgs e)
         {
-            SelectedShapeName = "Line";
-            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MLine;
+            CurrentShape.Text = StatusBarMessage + SelectedMaker.Name;
         }
         private void CircleBtn_Click(object sender, EventArgs e)
         {
-            SelectedShapeName = "Circle";
-            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MCircle;
+            CurrentShape.Text = StatusBarMessage + SelectedMaker.Name;
         }
         private void RectangleBtn_Click(object sender, EventArgs e)
         {
-            SelectedShapeName = "Rectangle";
-            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MRectangle;
+            CurrentShape.Text = StatusBarMessage + SelectedMaker.Name;
         }
         private void TriangleBtn_Click(object sender, EventArgs e)
         {
-            SelectedShapeName = "Triangle";
-            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MTriangle;
+            CurrentShape.Text = StatusBarMessage + SelectedMaker.Name;
         }
         private void OvalBtn_Click(object sender, EventArgs e)
         {
-            SelectedShapeName = "Oval";
-            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MOval;
+            CurrentShape.Text = StatusBarMessage + SelectedMaker.Name;
         }
         private void SquareBtn_Click(object sender, EventArgs e)
         {
-            SelectedShapeName = "Squre";
-            CurrentShape.Text = StatusBarMessage + SelectedShapeName;
             SelectedMaker = MSquare;
+            CurrentShape.Text = StatusBarMessage + SelectedMaker.Name;
         }
+        //OnClick button events for basic shapes END
 
         //background color change event handler
         private void LineColorPBox_Click(object sender, EventArgs e)
@@ -74,6 +69,7 @@ namespace MyPaint
             }
         }
 
+        //Handles the situation when different shapes from already drawn shapes list are chosen
         private void ShapeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ShapeListBox.SelectedIndex > -1)
@@ -84,7 +80,7 @@ namespace MyPaint
                 Invalidate();
                 Update();
                 g = CreateGraphics();
-                MRectangle.Make(Color.Purple, 4, System.Drawing.Drawing2D.DashStyle.Dash, S.getX1(), S.getY1(), S.getX2(), S.getY2()).draw(g);
+                MRectangle.Make(Color.Purple, 2, System.Drawing.Drawing2D.DashStyle.Dash, S.getX1(), S.getY1(), S.getX2(), S.getY2()).draw(g);
             } 
             else
             {
@@ -108,6 +104,7 @@ namespace MyPaint
             Invalidate();
         }
 
+        //Serialization handler
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter = "All files(*.*) | *.dat";
@@ -123,6 +120,7 @@ namespace MyPaint
                 MessageBox.Show("Nothing to save!");
         }
 
+        //Deserialization handler
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "All files(*.*) | *.dat";
@@ -133,8 +131,7 @@ namespace MyPaint
                 foreach (Shape shape in seriList)
                 {
                     shape.createPen();
-                    string shapeName = shape.GetType().ToString().Substring(8);
-                    ShapeListBox.Items.Add(shapeName);
+                    ShapeListBox.Items.Add(shape.getName());
                     DrawnShapesList.setList(seriList);
                     Invalidate();
                 }
@@ -157,6 +154,34 @@ namespace MyPaint
             Cursor = Cursors.Cross;
         }
 
+        private void hideLeft_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hideLeft.Checked)
+            {
+                DrawingPanel.Enabled = false;
+                DrawingPanel.Visible = false;
+            }
+            else
+            {
+                DrawingPanel.Enabled =true;
+                DrawingPanel.Visible = true;
+            }
+        }
+
+        private void hideRight_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hideRight.Checked)
+            {
+                EditPanel.Enabled = false;
+                EditPanel.Visible = false;
+            }
+            else
+            {
+                EditPanel.Enabled = true;
+                EditPanel.Visible = true;
+            }
+        }
+
         private void MainForm_MouseUp(object sender, MouseEventArgs e)
         {
             FinishPoint = new Point(e.X, e.Y);
@@ -164,10 +189,12 @@ namespace MyPaint
             if (StartPoint != FinishPoint)
             {
                 if (_drawnShapeIsOriginal)
-                DrawnShape = SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value,
-                penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y);
+                {
+                    DrawnShape = SelectedMaker.Make(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value,
+                    penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y);
+                }
                 DrawnShapesList.Add(DrawnShape);
-                ShapeListBox.Items.Add(SelectedShapeName);
+                ShapeListBox.Items.Add(DrawnShape.getName());
                 Invalidate();
             }
         }

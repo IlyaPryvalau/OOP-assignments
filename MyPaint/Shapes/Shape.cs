@@ -12,6 +12,7 @@ namespace MyPaint
         protected int penThickness;
         protected Color penColor;
         protected System.Drawing.Drawing2D.DashStyle penStyle;
+        protected string name;
 
         public Shape(Color color, int thickness, System.Drawing.Drawing2D.DashStyle style, int x1, int y1, int x2, int y2)
         {
@@ -56,6 +57,8 @@ namespace MyPaint
         {
             this.pen = newPen;
         }
+
+        public abstract string getName();
 
         //creates and configurates pen after deserialization
         public void createPen()
