@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using BaseShape;
 
 namespace MyPaint
 {
@@ -34,13 +35,14 @@ namespace MyPaint
             List<Shape> DShapeList = null;
             FileStream FileStr = new FileStream(FileName, FileMode.Open);
             BinaryFormatter Formatter = new BinaryFormatter();
+            //Formatter.Binder = new TypeNameConverter();
             try
             {
                 DShapeList = (List<Shape>)(Formatter.Deserialize(FileStr));
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(e.Message);
                 DShapeList = null;
             }
             finally

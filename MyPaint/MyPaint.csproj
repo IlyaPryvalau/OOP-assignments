@@ -62,16 +62,22 @@
     <Compile Include="Makers\TriangleMaker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TypeNameConverter.cs" />
     <Compile Include="Serializer.cs" />
     <Compile Include="ShapeList.cs" />
     <Compile Include="Shapes\Circle.cs" />
     <Compile Include="Shapes\Line.cs" />
     <Compile Include="Shapes\Oval.cs" />
     <Compile Include="Shapes\Rectangle.cs" />
-    <Compile Include="Shapes\Shape.cs" />
     <Compile Include="Shapes\Square.cs" />
     <Compile Include="Shapes\Triangle.cs" />
+    <EmbeddedResource Include="Form1.af.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.ru-RU.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,6 +121,20 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseShape\BaseShape.csproj">
+      <Project>{5181cebf-a462-499b-900d-9fd26a94f4f9}</Project>
+      <Name>BaseShape</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HexagonLib\HexagonLib.csproj">
+      <Project>{36426c45-6f38-45da-840c-c756090f1a88}</Project>
+      <Name>HexagonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PluginSystem\PluginSystem.csproj">
+      <Project>{55bdf123-e936-4abe-8f3a-adec8a3ffd82}</Project>
+      <Name>PluginSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

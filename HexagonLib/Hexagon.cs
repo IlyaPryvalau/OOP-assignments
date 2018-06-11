@@ -1,24 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using MyPaint;
-using PluginContracts;
 using System.Drawing;
+using BaseShape;
 
 namespace HexagonLib
 {
-    public class Hexagon : Shape, IShapePlugin
+    [Serializable]
+    public class Hexagon : Shape
     {
-        public Hexagon(Color color, int thickness, System.Drawing.Drawing2D.DashStyle style, int x1, int y1, int x2, int y2) : base(color, thickness, style, x1, y1, x2, y2)
+        public Hexagon(Color color, int thickness, PenStyle penStyle, int x1, int y1, int x2, int y2) : base(color, thickness, penStyle, x1, y1, x2, y2)
         {
-            name = "Hexagon";
-        }
-
-        public override string getName()
-        {
-            return name;
+            engname = "Hexagon";
+            rusname = "Шестиугольник";
         }
 
         public override void draw(Graphics g)

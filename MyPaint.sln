@@ -5,11 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPaint", "MyPaint\MyPaint.csproj", "{4DA8C0EE-482A-4CD4-879D-FD38F0315ACD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexagonLib", "HexagonLib\HexagonLib.csproj", "{BE122574-520E-4A4D-8D0D-77DF768E5F51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseShape", "BaseShape\BaseShape.csproj", "{5181CEBF-A462-499B-900D-9FD26A94F4F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSystem", "PluginSystem\PluginSystem.csproj", "{F1D5BBE5-4A60-4C41-95B2-1E04FECAA1AD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexagonLib", "HexagonLib\HexagonLib.csproj", "{36426C45-6F38-45DA-840C-C756090F1A88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginContracts", "PluginContracts\PluginContracts.csproj", "{930590B0-8015-4D3C-901C-8D1BDB24D41C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginSystem", "PluginSystem\PluginSystem.csproj", "{55BDF123-E936-4ABE-8F3A-ADEC8A3FFD82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StraightTriangleLib", "StraightTriangleLib\StraightTriangleLib.csproj", "{BE498728-B2D5-478D-8053-C48D89D52533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,18 +23,22 @@ Global
 		{4DA8C0EE-482A-4CD4-879D-FD38F0315ACD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DA8C0EE-482A-4CD4-879D-FD38F0315ACD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DA8C0EE-482A-4CD4-879D-FD38F0315ACD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE122574-520E-4A4D-8D0D-77DF768E5F51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE122574-520E-4A4D-8D0D-77DF768E5F51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE122574-520E-4A4D-8D0D-77DF768E5F51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE122574-520E-4A4D-8D0D-77DF768E5F51}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F1D5BBE5-4A60-4C41-95B2-1E04FECAA1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1D5BBE5-4A60-4C41-95B2-1E04FECAA1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1D5BBE5-4A60-4C41-95B2-1E04FECAA1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1D5BBE5-4A60-4C41-95B2-1E04FECAA1AD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{930590B0-8015-4D3C-901C-8D1BDB24D41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{930590B0-8015-4D3C-901C-8D1BDB24D41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{930590B0-8015-4D3C-901C-8D1BDB24D41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{930590B0-8015-4D3C-901C-8D1BDB24D41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5181CEBF-A462-499B-900D-9FD26A94F4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5181CEBF-A462-499B-900D-9FD26A94F4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5181CEBF-A462-499B-900D-9FD26A94F4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5181CEBF-A462-499B-900D-9FD26A94F4F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36426C45-6F38-45DA-840C-C756090F1A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36426C45-6F38-45DA-840C-C756090F1A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36426C45-6F38-45DA-840C-C756090F1A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36426C45-6F38-45DA-840C-C756090F1A88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55BDF123-E936-4ABE-8F3A-ADEC8A3FFD82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55BDF123-E936-4ABE-8F3A-ADEC8A3FFD82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55BDF123-E936-4ABE-8F3A-ADEC8A3FFD82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55BDF123-E936-4ABE-8F3A-ADEC8A3FFD82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE498728-B2D5-478D-8053-C48D89D52533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE498728-B2D5-478D-8053-C48D89D52533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE498728-B2D5-478D-8053-C48D89D52533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE498728-B2D5-478D-8053-C48D89D52533}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

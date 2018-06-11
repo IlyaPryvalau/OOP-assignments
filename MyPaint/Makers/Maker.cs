@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using BaseShape;
 
 namespace MyPaint
 { 
     public abstract class Maker
     {
-        public abstract string Name { get; }
+        public abstract string RusName { get; }
+        public abstract string EngName { get; }
 
-        public abstract Shape Make(Color color, int thickness, System.Drawing.Drawing2D.DashStyle style, int x1, int y1, int x2, int y2); //factory method
+        public abstract Shape Make(Color color, int thickness, PenStyle penStyle, int x1, int y1, int x2, int y2); //factory method
     }
 }

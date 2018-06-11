@@ -1,0 +1,7 @@
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\bin\Debug\PluginSystem.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\bin\Debug\PluginSystem.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\obj\Debug\PluginSystem.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\obj\Debug\PluginSystem.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\obj\Debug\PluginSystem.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\bin\Debug\BaseShape.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\PluginSystem\bin\Debug\BaseShape.pdb

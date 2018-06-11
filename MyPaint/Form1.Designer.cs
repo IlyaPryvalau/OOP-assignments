@@ -29,47 +29,53 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.clrBtn = new System.Windows.Forms.Button();
             this.BorderColorDialog = new System.Windows.Forms.ColorDialog();
             this.StatusStrip = new System.Windows.Forms.StatusStrip();
             this.CurrentShape = new System.Windows.Forms.ToolStripStatusLabel();
-            this.DashedLinesCheckBox = new System.Windows.Forms.CheckBox();
             this.LineThicknessUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.LineColorPBox = new System.Windows.Forms.PictureBox();
-            this.BGColorPBox = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.PluginsComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TriangleBtn = new System.Windows.Forms.Button();
-            this.SquareBtn = new System.Windows.Forms.Button();
-            this.RectangleBtn = new System.Windows.Forms.Button();
-            this.OvalBtn = new System.Windows.Forms.Button();
-            this.CircleBtn = new System.Windows.Forms.Button();
-            this.LineBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.LineColorDialog = new System.Windows.Forms.ColorDialog();
-            this.BGColorDialog = new System.Windows.Forms.ColorDialog();
+            this.LineBtn = new System.Windows.Forms.Button();
+            this.CircleBtn = new System.Windows.Forms.Button();
+            this.OvalBtn = new System.Windows.Forms.Button();
+            this.RectangleBtn = new System.Windows.Forms.Button();
+            this.SquareBtn = new System.Windows.Forms.Button();
+            this.BGColorPBox = new System.Windows.Forms.PictureBox();
+            this.TriangleBtn = new System.Windows.Forms.Button();
+            this.LineColorPBox = new System.Windows.Forms.PictureBox();
             this.ShapeListBox = new System.Windows.Forms.ListBox();
             this.changeBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.EditPanel = new System.Windows.Forms.Panel();
             this.DrawingPanel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LineTypesComboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setLanguageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishUSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.russianToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hidePanelsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideLeft = new System.Windows.Forms.ToolStripMenuItem();
             this.hideRight = new System.Windows.Forms.ToolStripMenuItem();
+            this.LineColorDialog = new System.Windows.Forms.ColorDialog();
+            this.BGColorDialog = new System.Windows.Forms.ColorDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.shapeListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.StatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).BeginInit();
             this.EditPanel.SuspendLayout();
             this.DrawingPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -78,11 +84,8 @@
             // 
             // clrBtn
             // 
-            this.clrBtn.Location = new System.Drawing.Point(12, 18);
+            resources.ApplyResources(this.clrBtn, "clrBtn");
             this.clrBtn.Name = "clrBtn";
-            this.clrBtn.Size = new System.Drawing.Size(94, 32);
-            this.clrBtn.TabIndex = 3;
-            this.clrBtn.Text = "Clear";
             this.clrBtn.UseVisualStyleBackColor = true;
             this.clrBtn.Click += new System.EventHandler(this.clrBtn_Click);
             // 
@@ -90,34 +93,18 @@
             // 
             this.StatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CurrentShape});
-            this.StatusStrip.Location = new System.Drawing.Point(0, 601);
+            resources.ApplyResources(this.StatusStrip, "StatusStrip");
             this.StatusStrip.Name = "StatusStrip";
-            this.StatusStrip.Size = new System.Drawing.Size(1241, 22);
-            this.StatusStrip.TabIndex = 5;
-            this.StatusStrip.Text = "statusStrip1";
             // 
             // CurrentShape
             // 
             this.CurrentShape.BackColor = System.Drawing.SystemColors.Control;
             this.CurrentShape.Name = "CurrentShape";
-            this.CurrentShape.Size = new System.Drawing.Size(87, 17);
-            this.CurrentShape.Text = "Current shape: ";
-            // 
-            // DashedLinesCheckBox
-            // 
-            this.DashedLinesCheckBox.AutoSize = true;
-            this.DashedLinesCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DashedLinesCheckBox.Location = new System.Drawing.Point(7, 438);
-            this.DashedLinesCheckBox.Name = "DashedLinesCheckBox";
-            this.DashedLinesCheckBox.Size = new System.Drawing.Size(106, 20);
-            this.DashedLinesCheckBox.TabIndex = 8;
-            this.DashedLinesCheckBox.Text = "Dashed lines";
-            this.DashedLinesCheckBox.UseVisualStyleBackColor = true;
-            this.DashedLinesCheckBox.CheckedChanged += new System.EventHandler(this.DashedLinesCheckBox_CheckedChanged);
+            resources.ApplyResources(this.CurrentShape, "CurrentShape");
             // 
             // LineThicknessUpDown
             // 
-            this.LineThicknessUpDown.Location = new System.Drawing.Point(8, 502);
+            resources.ApplyResources(this.LineThicknessUpDown, "LineThicknessUpDown");
             this.LineThicknessUpDown.Maximum = new decimal(new int[] {
             20,
             0,
@@ -129,8 +116,6 @@
             0,
             0});
             this.LineThicknessUpDown.Name = "LineThicknessUpDown";
-            this.LineThicknessUpDown.Size = new System.Drawing.Size(98, 20);
-            this.LineThicknessUpDown.TabIndex = 7;
             this.LineThicknessUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -139,169 +124,121 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(7, 472);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 16);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Line thickness:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LineColorPBox
+            // PluginsComboBox
             // 
-            this.LineColorPBox.BackColor = System.Drawing.Color.Black;
-            this.LineColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.LineColorPBox.Location = new System.Drawing.Point(3, 377);
-            this.LineColorPBox.Name = "LineColorPBox";
-            this.LineColorPBox.Size = new System.Drawing.Size(54, 27);
-            this.LineColorPBox.TabIndex = 14;
-            this.LineColorPBox.TabStop = false;
-            this.toolTip1.SetToolTip(this.LineColorPBox, "Foreground color");
-            this.LineColorPBox.Click += new System.EventHandler(this.LineColorPBox_Click);
-            // 
-            // BGColorPBox
-            // 
-            this.BGColorPBox.BackColor = System.Drawing.Color.White;
-            this.BGColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.BGColorPBox.Location = new System.Drawing.Point(49, 396);
-            this.BGColorPBox.Name = "BGColorPBox";
-            this.BGColorPBox.Size = new System.Drawing.Size(57, 27);
-            this.BGColorPBox.TabIndex = 7;
-            this.BGColorPBox.TabStop = false;
-            this.toolTip1.SetToolTip(this.BGColorPBox, "Background color");
-            this.BGColorPBox.Click += new System.EventHandler(this.BGColorPBox_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 328);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(110, 21);
-            this.comboBox1.TabIndex = 7;
+            resources.ApplyResources(this.PluginsComboBox, "PluginsComboBox");
+            this.PluginsComboBox.FormattingEnabled = true;
+            this.PluginsComboBox.Name = "PluginsComboBox";
+            this.PluginsComboBox.SelectedIndexChanged += new System.EventHandler(this.PluginsComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(22, 284);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 32);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Additional\r\nshapes:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TriangleBtn
+            // label1
             // 
-            this.TriangleBtn.Image = global::MyPaint.Properties.Resources.Triangle;
-            this.TriangleBtn.Location = new System.Drawing.Point(65, 218);
-            this.TriangleBtn.Name = "TriangleBtn";
-            this.TriangleBtn.Size = new System.Drawing.Size(37, 37);
-            this.TriangleBtn.TabIndex = 12;
-            this.toolTip1.SetToolTip(this.TriangleBtn, "Triangle");
-            this.TriangleBtn.UseVisualStyleBackColor = true;
-            this.TriangleBtn.Click += new System.EventHandler(this.TriangleBtn_Click);
-            // 
-            // SquareBtn
-            // 
-            this.SquareBtn.Image = global::MyPaint.Properties.Resources.Square;
-            this.SquareBtn.Location = new System.Drawing.Point(10, 218);
-            this.SquareBtn.Name = "SquareBtn";
-            this.SquareBtn.Size = new System.Drawing.Size(37, 37);
-            this.SquareBtn.TabIndex = 11;
-            this.toolTip1.SetToolTip(this.SquareBtn, "Square");
-            this.SquareBtn.UseVisualStyleBackColor = true;
-            this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
-            // 
-            // RectangleBtn
-            // 
-            this.RectangleBtn.Image = global::MyPaint.Properties.Resources.Rectangle;
-            this.RectangleBtn.Location = new System.Drawing.Point(65, 161);
-            this.RectangleBtn.Name = "RectangleBtn";
-            this.RectangleBtn.Size = new System.Drawing.Size(37, 37);
-            this.RectangleBtn.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.RectangleBtn, "Rectangle");
-            this.RectangleBtn.UseVisualStyleBackColor = true;
-            this.RectangleBtn.Click += new System.EventHandler(this.RectangleBtn_Click);
-            // 
-            // OvalBtn
-            // 
-            this.OvalBtn.Image = global::MyPaint.Properties.Resources.Oval;
-            this.OvalBtn.Location = new System.Drawing.Point(10, 161);
-            this.OvalBtn.Name = "OvalBtn";
-            this.OvalBtn.Size = new System.Drawing.Size(37, 37);
-            this.OvalBtn.TabIndex = 9;
-            this.toolTip1.SetToolTip(this.OvalBtn, "Oval");
-            this.OvalBtn.UseVisualStyleBackColor = true;
-            this.OvalBtn.Click += new System.EventHandler(this.OvalBtn_Click);
-            // 
-            // CircleBtn
-            // 
-            this.CircleBtn.Image = global::MyPaint.Properties.Resources.Circle;
-            this.CircleBtn.Location = new System.Drawing.Point(65, 102);
-            this.CircleBtn.Name = "CircleBtn";
-            this.CircleBtn.Size = new System.Drawing.Size(37, 37);
-            this.CircleBtn.TabIndex = 8;
-            this.toolTip1.SetToolTip(this.CircleBtn, "Circle");
-            this.CircleBtn.UseVisualStyleBackColor = true;
-            this.CircleBtn.Click += new System.EventHandler(this.CircleBtn_Click);
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // LineBtn
             // 
             this.LineBtn.Cursor = System.Windows.Forms.Cursors.Default;
             this.LineBtn.Image = global::MyPaint.Properties.Resources.Line2;
-            this.LineBtn.Location = new System.Drawing.Point(10, 102);
+            resources.ApplyResources(this.LineBtn, "LineBtn");
             this.LineBtn.Name = "LineBtn";
-            this.LineBtn.Size = new System.Drawing.Size(37, 37);
-            this.LineBtn.TabIndex = 7;
-            this.toolTip1.SetToolTip(this.LineBtn, "Line");
+            this.toolTip1.SetToolTip(this.LineBtn, resources.GetString("LineBtn.ToolTip"));
             this.LineBtn.UseVisualStyleBackColor = true;
             this.LineBtn.Click += new System.EventHandler(this.LineBtn_Click);
             // 
-            // label1
+            // CircleBtn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(13, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Basic shapes:";
+            this.CircleBtn.Image = global::MyPaint.Properties.Resources.Circle;
+            resources.ApplyResources(this.CircleBtn, "CircleBtn");
+            this.CircleBtn.Name = "CircleBtn";
+            this.toolTip1.SetToolTip(this.CircleBtn, resources.GetString("CircleBtn.ToolTip"));
+            this.CircleBtn.UseVisualStyleBackColor = true;
+            this.CircleBtn.Click += new System.EventHandler(this.CircleBtn_Click);
+            // 
+            // OvalBtn
+            // 
+            this.OvalBtn.Image = global::MyPaint.Properties.Resources.Oval;
+            resources.ApplyResources(this.OvalBtn, "OvalBtn");
+            this.OvalBtn.Name = "OvalBtn";
+            this.toolTip1.SetToolTip(this.OvalBtn, resources.GetString("OvalBtn.ToolTip"));
+            this.OvalBtn.UseVisualStyleBackColor = true;
+            this.OvalBtn.Click += new System.EventHandler(this.OvalBtn_Click);
+            // 
+            // RectangleBtn
+            // 
+            this.RectangleBtn.Image = global::MyPaint.Properties.Resources.Rectangle;
+            resources.ApplyResources(this.RectangleBtn, "RectangleBtn");
+            this.RectangleBtn.Name = "RectangleBtn";
+            this.toolTip1.SetToolTip(this.RectangleBtn, resources.GetString("RectangleBtn.ToolTip"));
+            this.RectangleBtn.UseVisualStyleBackColor = true;
+            this.RectangleBtn.Click += new System.EventHandler(this.RectangleBtn_Click);
+            // 
+            // SquareBtn
+            // 
+            this.SquareBtn.Image = global::MyPaint.Properties.Resources.Square;
+            resources.ApplyResources(this.SquareBtn, "SquareBtn");
+            this.SquareBtn.Name = "SquareBtn";
+            this.toolTip1.SetToolTip(this.SquareBtn, resources.GetString("SquareBtn.ToolTip"));
+            this.SquareBtn.UseVisualStyleBackColor = true;
+            this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
+            // 
+            // BGColorPBox
+            // 
+            this.BGColorPBox.BackColor = System.Drawing.Color.White;
+            this.BGColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.BGColorPBox, "BGColorPBox");
+            this.BGColorPBox.Name = "BGColorPBox";
+            this.BGColorPBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.BGColorPBox, resources.GetString("BGColorPBox.ToolTip"));
+            this.BGColorPBox.Click += new System.EventHandler(this.BGColorPBox_Click);
+            // 
+            // TriangleBtn
+            // 
+            this.TriangleBtn.Image = global::MyPaint.Properties.Resources.Triangle;
+            resources.ApplyResources(this.TriangleBtn, "TriangleBtn");
+            this.TriangleBtn.Name = "TriangleBtn";
+            this.toolTip1.SetToolTip(this.TriangleBtn, resources.GetString("TriangleBtn.ToolTip"));
+            this.TriangleBtn.UseVisualStyleBackColor = true;
+            this.TriangleBtn.Click += new System.EventHandler(this.TriangleBtn_Click);
+            // 
+            // LineColorPBox
+            // 
+            this.LineColorPBox.BackColor = System.Drawing.Color.Black;
+            this.LineColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.LineColorPBox, "LineColorPBox");
+            this.LineColorPBox.Name = "LineColorPBox";
+            this.LineColorPBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.LineColorPBox, resources.GetString("LineColorPBox.ToolTip"));
+            this.LineColorPBox.Click += new System.EventHandler(this.LineColorPBox_Click);
             // 
             // ShapeListBox
             // 
             this.ShapeListBox.BackColor = System.Drawing.SystemColors.Control;
             this.ShapeListBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ShapeListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            resources.ApplyResources(this.ShapeListBox, "ShapeListBox");
             this.ShapeListBox.FormattingEnabled = true;
-            this.ShapeListBox.HorizontalScrollbar = true;
-            this.ShapeListBox.ItemHeight = 18;
-            this.ShapeListBox.Location = new System.Drawing.Point(7, 3);
-            this.ShapeListBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
             this.ShapeListBox.Name = "ShapeListBox";
-            this.ShapeListBox.Size = new System.Drawing.Size(112, 472);
-            this.ShapeListBox.TabIndex = 7;
             this.ShapeListBox.SelectedIndexChanged += new System.EventHandler(this.ShapeListBox_SelectedIndexChanged);
             // 
             // changeBtn
             // 
-            this.changeBtn.Enabled = false;
-            this.changeBtn.Location = new System.Drawing.Point(7, 485);
+            resources.ApplyResources(this.changeBtn, "changeBtn");
             this.changeBtn.Name = "changeBtn";
-            this.changeBtn.Size = new System.Drawing.Size(112, 29);
-            this.changeBtn.TabIndex = 16;
-            this.changeBtn.Text = "Change";
             this.changeBtn.UseVisualStyleBackColor = true;
             this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
             // 
             // deleteBtn
             // 
-            this.deleteBtn.Enabled = false;
-            this.deleteBtn.Location = new System.Drawing.Point(7, 520);
+            resources.ApplyResources(this.deleteBtn, "deleteBtn");
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(112, 27);
-            this.deleteBtn.TabIndex = 17;
-            this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
@@ -312,21 +249,20 @@
             this.EditPanel.Controls.Add(this.ShapeListBox);
             this.EditPanel.Controls.Add(this.deleteBtn);
             this.EditPanel.Controls.Add(this.changeBtn);
-            this.EditPanel.Location = new System.Drawing.Point(1114, 38);
+            resources.ApplyResources(this.EditPanel, "EditPanel");
             this.EditPanel.Name = "EditPanel";
-            this.EditPanel.Size = new System.Drawing.Size(127, 552);
-            this.EditPanel.TabIndex = 18;
             // 
             // DrawingPanel
             // 
             this.DrawingPanel.BackColor = System.Drawing.SystemColors.Control;
             this.DrawingPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DrawingPanel.Controls.Add(this.label4);
+            this.DrawingPanel.Controls.Add(this.LineTypesComboBox);
             this.DrawingPanel.Controls.Add(this.clrBtn);
             this.DrawingPanel.Controls.Add(this.LineThicknessUpDown);
             this.DrawingPanel.Controls.Add(this.LineBtn);
             this.DrawingPanel.Controls.Add(this.label1);
             this.DrawingPanel.Controls.Add(this.label3);
-            this.DrawingPanel.Controls.Add(this.DashedLinesCheckBox);
             this.DrawingPanel.Controls.Add(this.CircleBtn);
             this.DrawingPanel.Controls.Add(this.OvalBtn);
             this.DrawingPanel.Controls.Add(this.RectangleBtn);
@@ -335,57 +271,88 @@
             this.DrawingPanel.Controls.Add(this.TriangleBtn);
             this.DrawingPanel.Controls.Add(this.LineColorPBox);
             this.DrawingPanel.Controls.Add(this.label2);
-            this.DrawingPanel.Controls.Add(this.comboBox1);
-            this.DrawingPanel.Location = new System.Drawing.Point(0, 38);
+            this.DrawingPanel.Controls.Add(this.PluginsComboBox);
+            resources.ApplyResources(this.DrawingPanel, "DrawingPanel");
             this.DrawingPanel.Name = "DrawingPanel";
-            this.DrawingPanel.Size = new System.Drawing.Size(121, 552);
-            this.DrawingPanel.TabIndex = 19;
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // LineTypesComboBox
+            // 
+            this.LineTypesComboBox.FormattingEnabled = true;
+            resources.ApplyResources(this.LineTypesComboBox, "LineTypesComboBox");
+            this.LineTypesComboBox.Name = "LineTypesComboBox";
+            this.LineTypesComboBox.SelectedIndexChanged += new System.EventHandler(this.LineTypesComboBox_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.menuStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(0);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1241, 28);
-            this.menuStrip1.TabIndex = 20;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveToolStripMenuItem,
-            this.openToolStripMenuItem});
-            this.fileToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.openToolStripMenuItem,
+            this.setLanguageToolStripMenuItem,
+            this.saveChangesToolStripMenuItem});
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
-            this.fileToolStripMenuItem.Text = "File";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
-            this.saveToolStripMenuItem.Text = "Save";
+            resources.ApplyResources(this.saveToolStripMenuItem, "saveToolStripMenuItem");
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
-            this.openToolStripMenuItem.Text = "Open";
+            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // setLanguageToolStripMenuItem
+            // 
+            this.setLanguageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.englishUSToolStripMenuItem,
+            this.russianToolStripMenuItem});
+            this.setLanguageToolStripMenuItem.Name = "setLanguageToolStripMenuItem";
+            resources.ApplyResources(this.setLanguageToolStripMenuItem, "setLanguageToolStripMenuItem");
+            // 
+            // englishUSToolStripMenuItem
+            // 
+            this.englishUSToolStripMenuItem.Checked = true;
+            this.englishUSToolStripMenuItem.CheckOnClick = true;
+            this.englishUSToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.englishUSToolStripMenuItem.Name = "englishUSToolStripMenuItem";
+            resources.ApplyResources(this.englishUSToolStripMenuItem, "englishUSToolStripMenuItem");
+            // 
+            // russianToolStripMenuItem
+            // 
+            this.russianToolStripMenuItem.CheckOnClick = true;
+            this.russianToolStripMenuItem.Name = "russianToolStripMenuItem";
+            resources.ApplyResources(this.russianToolStripMenuItem, "russianToolStripMenuItem");
+            // 
+            // saveChangesToolStripMenuItem
+            // 
+            this.saveChangesToolStripMenuItem.CheckOnClick = true;
+            this.saveChangesToolStripMenuItem.Name = "saveChangesToolStripMenuItem";
+            resources.ApplyResources(this.saveChangesToolStripMenuItem, "saveChangesToolStripMenuItem");
             // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hidePanelsToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
-            this.viewToolStripMenuItem.Text = "View";
+            resources.ApplyResources(this.viewToolStripMenuItem, "viewToolStripMenuItem");
             // 
             // hidePanelsToolStripMenuItem
             // 
@@ -393,52 +360,45 @@
             this.hideLeft,
             this.hideRight});
             this.hidePanelsToolStripMenuItem.Name = "hidePanelsToolStripMenuItem";
-            this.hidePanelsToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.hidePanelsToolStripMenuItem.Text = "Hide panels";
+            resources.ApplyResources(this.hidePanelsToolStripMenuItem, "hidePanelsToolStripMenuItem");
             // 
             // hideLeft
             // 
             this.hideLeft.CheckOnClick = true;
             this.hideLeft.Name = "hideLeft";
-            this.hideLeft.Size = new System.Drawing.Size(159, 22);
-            this.hideLeft.Text = "Hide left panel";
+            resources.ApplyResources(this.hideLeft, "hideLeft");
             this.hideLeft.CheckedChanged += new System.EventHandler(this.hideLeft_CheckedChanged);
             // 
             // hideRight
             // 
             this.hideRight.CheckOnClick = true;
             this.hideRight.Name = "hideRight";
-            this.hideRight.Size = new System.Drawing.Size(159, 22);
-            this.hideRight.Text = "Hide right panel";
+            resources.ApplyResources(this.hideRight, "hideRight");
             this.hideRight.CheckedChanged += new System.EventHandler(this.hideRight_CheckedChanged);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // shapeListBindingSource
-            // 
-            this.shapeListBindingSource.DataSource = typeof(MyPaint.ShapeList);
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1241, 623);
             this.Controls.Add(this.DrawingPanel);
             this.Controls.Add(this.EditPanel);
             this.Controls.Add(this.StatusStrip);
             this.Controls.Add(this.menuStrip1);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MyPaint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.MouseEnter += new System.EventHandler(this.MainForm_MouseEnter);
@@ -448,8 +408,8 @@
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).EndInit();
             this.EditPanel.ResumeLayout(false);
             this.DrawingPanel.ResumeLayout(false);
             this.DrawingPanel.PerformLayout();
@@ -475,7 +435,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox LineColorPBox;
         private System.Windows.Forms.PictureBox BGColorPBox;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox PluginsComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolTip toolTip1;
@@ -483,7 +443,6 @@
         private System.Windows.Forms.ColorDialog LineColorDialog;
         private System.Windows.Forms.ColorDialog BGColorDialog;
         private System.Windows.Forms.ListBox ShapeListBox;
-        private System.Windows.Forms.CheckBox DashedLinesCheckBox;
         private System.Windows.Forms.Button changeBtn;
         private System.Windows.Forms.BindingSource shapeListBindingSource;
         private System.Windows.Forms.Button deleteBtn;
@@ -499,6 +458,12 @@
         private System.Windows.Forms.ToolStripMenuItem hidePanelsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hideLeft;
         private System.Windows.Forms.ToolStripMenuItem hideRight;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox LineTypesComboBox;
+        private System.Windows.Forms.ToolStripMenuItem setLanguageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishUSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem russianToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveChangesToolStripMenuItem;
     }
 }
 
