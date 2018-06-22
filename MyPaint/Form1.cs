@@ -30,6 +30,7 @@ namespace MyPaint
         private Maker MCircle, MLine, MOval, MRectangle, MSquare, MTriangle, SelectedMaker;
         const string StatusBarMessage = "Drawing: ";
         string SelectedShapeName;
+        string Language;
         bool _mousePressed = false,
             _drawnShapeIsOriginal = true,
             _pluginsLoaded = false;
@@ -72,16 +73,7 @@ namespace MyPaint
             CurrentShape.Text = StatusBarMessage + SelectedMaker.EngName;
             _drawnShapeIsOriginal = true;
         }
-        //OnClick button events for basic shapes END
-
-        //background color change event handler
-        private void LineColorPBox_Click(object sender, EventArgs e)
-        {
-            if (LineColorDialog.ShowDialog() == DialogResult.OK)
-            {
-                LineColorPBox.BackColor = LineColorDialog.Color;
-            }
-        }
+        //OnClick button events for basic shapes END      
 
         //Handles the situation when different shapes from already drawn shapes list are chosen
         private void ShapeListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +103,7 @@ namespace MyPaint
         private void changeBtn_Click(object sender, EventArgs e)
         {
             Shape shapeToChange = DrawnShapesList.GetShape(ShapeListBox.SelectedIndex);
-            shapeToChange.ChangePenProperties(LineColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle);
+            shapeToChange.ChangePenProperties(BGColorPBox.BackColor, (int)LineThicknessUpDown.Value, penStyle);
             Invalidate();
         }
 
@@ -176,6 +168,7 @@ namespace MyPaint
             Cursor = Cursors.Cross;
         }
 
+        //Hiding left panel
         private void hideLeft_CheckedChanged(object sender, EventArgs e)
         {
             if (hideLeft.Checked)
@@ -190,6 +183,7 @@ namespace MyPaint
             }
         }
 
+        //Hiding right panel
         private void hideRight_CheckedChanged(object sender, EventArgs e)
         {
             if (hideRight.Checked)
@@ -222,6 +216,42 @@ namespace MyPaint
             }
         }
 
+        //Handles setting the interface language to English
+        private void englishUSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            russianToolStripMenuItem.Checked = false;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+            Language = "en-US";
+            Controls.Clear();
+            InitializeComponent();
+        }
+
+        private void LineColorPBox_Click(object sender, EventArgs e)
+        {
+            if (LineColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                LineColorPBox.BackColor = LineColorDialog.Color;
+            }
+        }
+
+        private void BGColorPBox_Click(object sender, EventArgs e)
+        {
+            if (BGColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                BackColor = BGColorPBox.BackColor = BGColorDialog.Color;
+            }
+        }
+
+        //Handles setting the interface language to Russian
+        private void russianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            englishUSToolStripMenuItem.Checked = false;
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ru-RU");
+            Language = "ru-RU";
+            Controls.Clear();
+            InitializeComponent();
+        }
+
         //Load plugins on form load
         private void MainForm_Load(object sender, EventArgs e)
         {
@@ -229,7 +259,7 @@ namespace MyPaint
             if (pluginCollection.Count > 0)
             {
                 PluginsComboBox.DataSource = pluginCollection;
-                PluginsComboBox.DisplayMember = "Name";
+                PluginsComboBox.DisplayMember = "RusName";
                 PluginsComboBox.Enabled = true;
                 PluginsComboBox.SelectedIndex = -1;
             }
@@ -277,19 +307,13 @@ namespace MyPaint
             else if (_mousePressed)
                 ((Shape)Activator.CreateInstance((Type)PluginsComboBox.SelectedItem, LineColorPBox.BackColor, (int)LineThicknessUpDown.Value,
                 penStyle, StartPoint.X, StartPoint.Y, FinishPoint.X, FinishPoint.Y)).draw(g);
-        }
-
-        private void BGColorPBox_Click(object sender, EventArgs e)
-        {
-            if (BGColorDialog.ShowDialog() == DialogResult.OK)
-            {
-                BackColor = BGColorPBox.BackColor = BGColorDialog.Color;
-            }
-        }         
+        }  
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             g.Dispose();
+            if (saveChangesToolStripMenuItem.Checked)
+                SaveConfiguration();
         }
 
         private void clrBtn_Click(object sender, EventArgs e)
@@ -351,8 +375,8 @@ namespace MyPaint
             //<Language>
             CurrUpperNode = XmlDoc.CreateElement("Language");
             XmlDoc.DocumentElement.AppendChild(CurrUpperNode);
-            CurrChildNode = XmlDoc.CreateElement("CurrL");
-            CurrChildNode.InnerText = AppLanguage;
+            CurrChildNode = XmlDoc.CreateElement("CurrentLanguage");
+            CurrChildNode.InnerText = Language;
             CurrUpperNode.AppendChild(CurrChildNode);
             //</Language>
 
@@ -362,10 +386,26 @@ namespace MyPaint
         //Form constructor
         public MainForm()
         {
-            //Ensuring painting without flickering
+            //Load the app language from xml
+            XmlDocument XmlDocument = new XmlDocument();
+            try
+            {
+                XmlDocument.Load("config.xml");
+                XmlElement element = XmlDocument.DocumentElement;
+                XmlNode node = element["Language"];
+
+                Language = (node["CurrL"].InnerText);
+
+                XmlDocument.Save("config.xml");
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Language);
+            }
+            catch
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+                Language = "en-US";
+            }
+
             InitializeComponent();
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
-            UpdateStyles();
             //Instantiate shape object makers
             MCircle = new CircleMaker();
             MLine = new LineMaker();
@@ -391,8 +431,6 @@ namespace MyPaint
             penStyleList.Add(new PenStyle("Dot", "Пунктир", System.Drawing.Drawing2D.DashStyle.Dot));
             LineTypesComboBox.DataSource = penStyleList;
             LineTypesComboBox.DisplayMember = "EngName";
-
-            //
         }
     }
 }

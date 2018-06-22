@@ -5,3 +5,11 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\StraightTriangleLib\
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\StraightTriangleLib\obj\Debug\StraightTriangleLib.csprojResolveAssemblyReference.cache
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\StraightTriangleLib\obj\Debug\StraightTriangleLib.dll
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\StraightTriangleLib\obj\Debug\StraightTriangleLib.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\StraightTriangleLib\bin\Debug\Plugins\StraightTriangleLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\StraightTriangleLib\bin\Debug\Plugins\StraightTriangleLib.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\StraightTriangleLib\bin\Debug\Plugins\BaseShape.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\StraightTriangleLib\bin\Debug\Plugins\BaseShape.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\Plugins\StraightTriangleLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\Plugins\StraightTriangleLib.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\Plugins\StraightTriangleLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\Plugins\StraightTriangleLib.pdb

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using BaseShape;
 
-namespace HexagonLib
+namespace MyPaint
 {
     [Serializable]
     public class Hexagon : Shape

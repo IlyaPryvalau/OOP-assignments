@@ -45,9 +45,9 @@
             this.OvalBtn = new System.Windows.Forms.Button();
             this.RectangleBtn = new System.Windows.Forms.Button();
             this.SquareBtn = new System.Windows.Forms.Button();
-            this.BGColorPBox = new System.Windows.Forms.PictureBox();
-            this.TriangleBtn = new System.Windows.Forms.Button();
             this.LineColorPBox = new System.Windows.Forms.PictureBox();
+            this.TriangleBtn = new System.Windows.Forms.Button();
+            this.BGColorPBox = new System.Windows.Forms.PictureBox();
             this.ShapeListBox = new System.Windows.Forms.ListBox();
             this.changeBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
@@ -74,8 +74,8 @@
             this.shapeListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.StatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).BeginInit();
             this.EditPanel.SuspendLayout();
             this.DrawingPanel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -190,15 +190,15 @@
             this.SquareBtn.UseVisualStyleBackColor = true;
             this.SquareBtn.Click += new System.EventHandler(this.SquareBtn_Click);
             // 
-            // BGColorPBox
+            // LineColorPBox
             // 
-            this.BGColorPBox.BackColor = System.Drawing.Color.White;
-            this.BGColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            resources.ApplyResources(this.BGColorPBox, "BGColorPBox");
-            this.BGColorPBox.Name = "BGColorPBox";
-            this.BGColorPBox.TabStop = false;
-            this.toolTip1.SetToolTip(this.BGColorPBox, resources.GetString("BGColorPBox.ToolTip"));
-            this.BGColorPBox.Click += new System.EventHandler(this.BGColorPBox_Click);
+            this.LineColorPBox.BackColor = System.Drawing.Color.Black;
+            this.LineColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.LineColorPBox, "LineColorPBox");
+            this.LineColorPBox.Name = "LineColorPBox";
+            this.LineColorPBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.LineColorPBox, resources.GetString("LineColorPBox.ToolTip"));
+            this.LineColorPBox.Click += new System.EventHandler(this.LineColorPBox_Click);
             // 
             // TriangleBtn
             // 
@@ -209,15 +209,15 @@
             this.TriangleBtn.UseVisualStyleBackColor = true;
             this.TriangleBtn.Click += new System.EventHandler(this.TriangleBtn_Click);
             // 
-            // LineColorPBox
+            // BGColorPBox
             // 
-            this.LineColorPBox.BackColor = System.Drawing.Color.Black;
-            this.LineColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            resources.ApplyResources(this.LineColorPBox, "LineColorPBox");
-            this.LineColorPBox.Name = "LineColorPBox";
-            this.LineColorPBox.TabStop = false;
-            this.toolTip1.SetToolTip(this.LineColorPBox, resources.GetString("LineColorPBox.ToolTip"));
-            this.LineColorPBox.Click += new System.EventHandler(this.LineColorPBox_Click);
+            this.BGColorPBox.BackColor = System.Drawing.Color.White;
+            this.BGColorPBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.BGColorPBox, "BGColorPBox");
+            this.BGColorPBox.Name = "BGColorPBox";
+            this.BGColorPBox.TabStop = false;
+            this.toolTip1.SetToolTip(this.BGColorPBox, resources.GetString("BGColorPBox.ToolTip"));
+            this.BGColorPBox.Click += new System.EventHandler(this.BGColorPBox_Click);
             // 
             // ShapeListBox
             // 
@@ -267,9 +267,9 @@
             this.DrawingPanel.Controls.Add(this.OvalBtn);
             this.DrawingPanel.Controls.Add(this.RectangleBtn);
             this.DrawingPanel.Controls.Add(this.SquareBtn);
-            this.DrawingPanel.Controls.Add(this.BGColorPBox);
-            this.DrawingPanel.Controls.Add(this.TriangleBtn);
             this.DrawingPanel.Controls.Add(this.LineColorPBox);
+            this.DrawingPanel.Controls.Add(this.TriangleBtn);
+            this.DrawingPanel.Controls.Add(this.BGColorPBox);
             this.DrawingPanel.Controls.Add(this.label2);
             this.DrawingPanel.Controls.Add(this.PluginsComboBox);
             resources.ApplyResources(this.DrawingPanel, "DrawingPanel");
@@ -334,12 +334,14 @@
             this.englishUSToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.englishUSToolStripMenuItem.Name = "englishUSToolStripMenuItem";
             resources.ApplyResources(this.englishUSToolStripMenuItem, "englishUSToolStripMenuItem");
+            this.englishUSToolStripMenuItem.Click += new System.EventHandler(this.englishUSToolStripMenuItem_Click);
             // 
             // russianToolStripMenuItem
             // 
             this.russianToolStripMenuItem.CheckOnClick = true;
             this.russianToolStripMenuItem.Name = "russianToolStripMenuItem";
             resources.ApplyResources(this.russianToolStripMenuItem, "russianToolStripMenuItem");
+            this.russianToolStripMenuItem.Click += new System.EventHandler(this.russianToolStripMenuItem_Click);
             // 
             // saveChangesToolStripMenuItem
             // 
@@ -408,8 +410,8 @@
             this.StatusStrip.ResumeLayout(false);
             this.StatusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LineThicknessUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineColorPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BGColorPBox)).EndInit();
             this.EditPanel.ResumeLayout(false);
             this.DrawingPanel.ResumeLayout(false);
             this.DrawingPanel.PerformLayout();
@@ -433,8 +435,8 @@
         private System.Windows.Forms.Button CircleBtn;
         private System.Windows.Forms.Button LineBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox LineColorPBox;
         private System.Windows.Forms.PictureBox BGColorPBox;
+        private System.Windows.Forms.PictureBox LineColorPBox;
         private System.Windows.Forms.ComboBox PluginsComboBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

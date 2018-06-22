@@ -5,3 +5,11 @@ C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\HexagonLib\bin\Debug
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\HexagonLib\obj\Debug\HexagonLib.csprojResolveAssemblyReference.cache
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\HexagonLib\obj\Debug\HexagonLib.dll
 C:\Users\User\Documents\Visual Studio 2015\Projects\MyPaint\HexagonLib\obj\Debug\HexagonLib.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\HexagonLib\bin\Debug\Plugins\HexagonLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\HexagonLib\bin\Debug\Plugins\HexagonLib.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\HexagonLib\bin\Debug\Plugins\BaseShape.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\HexagonLib\bin\Debug\Plugins\BaseShape.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\Plugins\HexagonLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\Plugins\HexagonLib.pdb
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\Plugins\HexagonLib.dll
+C:\Users\User\documents\visual studio 2015\Projects\MyPaint\MyPaint\bin\Debug\Plugins\HexagonLib.pdb

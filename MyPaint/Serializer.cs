@@ -14,40 +14,35 @@ namespace MyPaint
     {
         public void Serialize(List<Shape> LocalList, string FileName)
         {
-            FileStream FileStr = new FileStream(FileName, FileMode.Create);
             BinaryFormatter Formatter = new BinaryFormatter();
-            try
+            using (FileStream FileStr = new FileStream(FileName, FileMode.Create))
             {
-                Formatter.Serialize(FileStr, LocalList);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                FileStr.Close();
+                try
+                {
+                    Formatter.Serialize(FileStr, LocalList);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
             }
         }
 
         public List<Shape> DeSerialize(string FileName)
         {
             List<Shape> DShapeList = null;
-            FileStream FileStr = new FileStream(FileName, FileMode.Open);
             BinaryFormatter Formatter = new BinaryFormatter();
-            //Formatter.Binder = new TypeNameConverter();
-            try
+            using (FileStream FileStr = new FileStream(FileName, FileMode.Open))
             {
-                DShapeList = (List<Shape>)(Formatter.Deserialize(FileStr));
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                DShapeList = null;
-            }
-            finally
-            {
-                FileStr.Close();
+                try
+                {
+                    DShapeList = (List<Shape>)(Formatter.Deserialize(FileStr));
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    DShapeList = null;
+                }
             }
             return DShapeList;
         }

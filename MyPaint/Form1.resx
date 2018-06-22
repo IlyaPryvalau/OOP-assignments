@@ -325,7 +325,7 @@ shapes:</value>
     <value>558, 19</value>
   </metadata>
   <data name="LineBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 102</value>
+    <value>12, 102</value>
   </data>
   <data name="LineBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 37</value>
@@ -444,28 +444,32 @@ shapes:</value>
   <data name="&gt;&gt;SquareBtn.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
-  <data name="BGColorPBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 390</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LineColorPBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="BGColorPBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="LineColorPBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 370</value>
+  </data>
+  <data name="LineColorPBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 27</value>
   </data>
-  <data name="BGColorPBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="LineColorPBox.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="BGColorPBox.ToolTip" xml:space="preserve">
-    <value>Background color</value>
+  <data name="LineColorPBox.ToolTip" xml:space="preserve">
+    <value>LineColor</value>
   </data>
-  <data name="&gt;&gt;BGColorPBox.Name" xml:space="preserve">
-    <value>BGColorPBox</value>
+  <data name="&gt;&gt;LineColorPBox.Name" xml:space="preserve">
+    <value>LineColorPBox</value>
   </data>
-  <data name="&gt;&gt;BGColorPBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;LineColorPBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;BGColorPBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;LineColorPBox.Parent" xml:space="preserve">
     <value>DrawingPanel</value>
   </data>
-  <data name="&gt;&gt;BGColorPBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;LineColorPBox.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="TriangleBtn.Location" type="System.Drawing.Point, System.Drawing">
@@ -492,28 +496,28 @@ shapes:</value>
   <data name="&gt;&gt;TriangleBtn.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="LineColorPBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 375</value>
+  <data name="BGColorPBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 385</value>
   </data>
-  <data name="LineColorPBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="BGColorPBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 27</value>
   </data>
-  <data name="LineColorPBox.TabIndex" type="System.Int32, mscorlib">
+  <data name="BGColorPBox.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="LineColorPBox.ToolTip" xml:space="preserve">
-    <value>Foreground color</value>
+  <data name="BGColorPBox.ToolTip" xml:space="preserve">
+    <value>Background Color</value>
   </data>
-  <data name="&gt;&gt;LineColorPBox.Name" xml:space="preserve">
-    <value>LineColorPBox</value>
+  <data name="&gt;&gt;BGColorPBox.Name" xml:space="preserve">
+    <value>BGColorPBox</value>
   </data>
-  <data name="&gt;&gt;LineColorPBox.Type" xml:space="preserve">
+  <data name="&gt;&gt;BGColorPBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;LineColorPBox.Parent" xml:space="preserve">
+  <data name="&gt;&gt;BGColorPBox.Parent" xml:space="preserve">
     <value>DrawingPanel</value>
   </data>
-  <data name="&gt;&gt;LineColorPBox.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;BGColorPBox.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
   <data name="ShapeListBox.Font" type="System.Drawing.Font, System.Drawing">
@@ -528,7 +532,6 @@ shapes:</value>
   <data name="ShapeListBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 3</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ShapeListBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 0</value>
   </data>

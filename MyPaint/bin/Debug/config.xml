@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<head>
+  <Color>
+    <BackArgbColor>-1</BackArgbColor>
+    <LineArgbColor>-16711936</LineArgbColor>
+  </Color>
+  <Pen>
+    <Thickness>1</Thickness>
+    <Style>Solid</Style>
+  </Pen>
+  <Language>
+    <CurrentLanguage>
+    </CurrentLanguage>
+  </Language>
+</head>
